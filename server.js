@@ -13,7 +13,7 @@ var apiRouter = express.Router();
 app.use('/', apiRouter);
 
 //set db path
-mongoose.connect(process.env.MongoUri || 'mongodb://localhost/goodwilldb');
+mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/our-class-app');
 
 //listen for requests on port
 app.listen(port, function() {
