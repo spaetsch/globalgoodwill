@@ -4,7 +4,7 @@
   "description": "Global Good Will",
   "author": "Shawn Fiske",
   "license": "ISC",
-  "main": "initServer.js",
+  "main": "server.js",
   "directories": {
     "test": "test"
   },
@@ -12,6 +12,9 @@
     "test": "gulp"
   },
   "dependencies": {
+    "angular": "^1.4.3",
+    "angular-route": "^1.4.3",
+    "bcrypt": "^0.8.3",
     "body-parser": "^1.13.2",
     "chai": "^3.0.0",
     "chai-http": "^1.0.0",
@@ -21,10 +24,16 @@
     "gulp-mocha": "^2.1.2",
     "mocha": "^2.2.5",
     "mongoose": "^4.0.7",
-    "bcrypt": "^0.8.3"
+    "node-sass": "^3.2.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/spaetsch/globalgoodwill"
+  },
+  "devDependencies": {
+    "gulp-minify-css": "^1.2.0",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-uglify": "^1.2.0",
+    "webpack": "^1.10.5"
   }
 }
