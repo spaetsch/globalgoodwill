@@ -24,7 +24,7 @@ gulp.task('lint', function(){
 				     .pipe(jshint.reporter('default'));
 });
 
-watch breaks server requests
+//watch breaks server requests
 gulp.task('watch', function() {
   gulp.watch('*.js', ['test', 'lint']);
 });

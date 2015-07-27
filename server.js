@@ -5,6 +5,8 @@ var app           = express();
 var port          = process.env.PORT || 3000;
 var userRoutes    = express.Router();
 
+var path = require('path');
+
 // Route setup
 var apiRouter = express.Router();
 ['user'].forEach(function(route) {
@@ -13,7 +15,15 @@ var apiRouter = express.Router();
 app.use('/', apiRouter);
 
 //set db path
-mongoose.connect(process.env.MongoUri || 'mongodb://localhost/goodwilldb');
+//mongoose.connect(process.env.MongoUri || 'mongodb://localhost/goodwilldb');
+
+
+//static services
+app.use(express.static(path.join(__dirname, 'build'))); //serve everything inside public directory
+
+//will need this for router
+//require('./routes/routes')(settingsRouter);
+//app.use('/', settingsRouter);
 
 //listen for requests on port
 app.listen(port, function() {
