@@ -16,15 +16,12 @@
     "angular-route": "^1.4.3",
     "bcrypt": "^0.8.3",
     "body-parser": "^1.13.2",
-    "chai": "^3.0.0",
-    "chai-http": "^1.0.0",
     "express": "^4.13.1",
-    "gulp": "^3.9.0",
-    "gulp-jshint": "^1.11.2",
-    "gulp-mocha": "^2.1.2",
-    "mocha": "^2.2.5",
     "mongoose": "^4.0.7",
-    "node-sass": "^3.2.0"
+    "node-sass": "^3.2.0",
+    "passport": "^0.2.2",
+    "passport-http":"^0.2.2",
+    "eat":"0.1.1"
   },
   "repository": {
     "type": "git",
@@ -37,5 +34,11 @@
     "node-bourbon": "^4.2.3",
     "node-neat": "^1.7.2",
     "webpack": "^1.10.5"
+    "chai": "^3.0.0",
+    "chai-http": "^1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-mocha": "^2.1.2",
+    "mocha": "^2.2.5"
   }
 }
