@@ -6,12 +6,12 @@ module.exports = function(router) {
   router.get('/', function(request, response) {
     //req.params.id
     User.find({}, function(err, data) {
-      
+
       if (err) {
         response.status(500).json({msg: 'failed'})
       }else{
         //response.status(200).json(data);
-        response.status(200).json({msg: 'succeded'});
+        response.status(200).json({msg: 'succeeded'});
       }
     });
   });

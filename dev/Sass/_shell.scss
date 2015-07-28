@@ -3,7 +3,7 @@
 
 header {
   @include outer-container;
-  background-color: red;
+  background-color: $lighter-accent-color_1;
   padding: 2em 0.5em;
 }
 
@@ -16,7 +16,9 @@ header {
   @include span-columns(4);
   background-color:yellow;
 }
-
+body {
+  background-color: $light-color;
+}
 footer {
   @include outer-container;
   background-color: blue;
