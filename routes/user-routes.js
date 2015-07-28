@@ -8,7 +8,7 @@ module.exports  = function(router, passport) {
   router.route('/create_user')
         .post(function(req, res) {
           var newUserData             = JSON.parse(JSON.stringify(req.body));
-          delete newUserData.email;
+          delete newUserData.username;
           delete newUserData.password;
           var newUser                 = new User(newUserData);
           newUser.basic.username      = req.body.username;
@@ -63,7 +63,7 @@ module.exports  = function(router, passport) {
         
   // '{"username":"myName", "password":"myPass"}'      
   router.route('/sign_in')
-        .get(passport.authenticate('basic', {session: false}), function(req, res) {
+        .post(passport.authenticate('basic', {session: false}), function(req, res) {
               req.user.generateToken(process.env.APP_SECRET, function(err, token) {
                 if (err) {
                   return res.status(500).json({msg: 'failed'});
