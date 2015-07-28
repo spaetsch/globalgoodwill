@@ -15,7 +15,7 @@ var port          = process.env.PORT || 3000;
 //    require('./routes/' + route + '-routes')(apiRouter)
 //});
 
-//app.use('/api', userRoutes);
+app.use('/api', userRoutes);
 
 //set db path
 //mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/our-class-app');
