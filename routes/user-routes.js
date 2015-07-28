@@ -15,7 +15,6 @@ module.exports  = function(router, passport) {
           newUser.email               = req.body.email;
           newUser.basic.password_hash = newUser.generateHash(req.body.password);
           newUser.orginitation_name   = req.body.orginitation;
-          newUser.email               = req.body.email;
           newUser.phone               = req.body.phone;
           newUser.address             = req.body.address;
           newUser.city                = req.body.city;
@@ -70,11 +69,9 @@ module.exports  = function(router, passport) {
           console.log('Deleteing entire collection');
           User.remove({}, function(err, item) {
             if(err){
-              res.status(404);
-              res.json({msg: 'failed'});
+              res.status(500).json({msg: 'failed'});
             }else{
-              res.status(200);
-              res.json({msg: 'success'});
+              res.status(200).json({msg: 'success'});
             }
           });
         });
@@ -84,12 +81,9 @@ module.exports  = function(router, passport) {
         .get(passport.authenticate('basic', {session: false}), function(req, res) {
               req.user.generateToken(process.env.APP_SECRET, function(err, token) {
                 if (err) {
-                  console.log("Response: ", res);
-                  return res.status(500).json({msg: 'error generating token'});
-                  return res.status(500).json(err);
+                  return res.status(500).json({msg: 'failed'});
                 }else{
-                  res.json({token: token});
-                  res.status(200).json({msg: 'succeed'})
+                  res.status(200).json({token: token});
                 }
               });
         });

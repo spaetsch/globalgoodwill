@@ -15,11 +15,11 @@ process.env.APP_SECRET = process.env.APP_SECRET || 'changethischangethischangeti
 // Route setup
 app.use(passport.initialize());
 var apiRouter = express.Router();
-['user'].forEach(function(route) {
+['user', 'surplus', 'shipment', 'nonprofit'].forEach(function(route) {
     require('./routes/' + route + '-routes')(apiRouter, passport)
 });
 
-app.use('/', apiRouter);
+app.use('/api', apiRouter);
 
 mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/ourclassapp');
 
