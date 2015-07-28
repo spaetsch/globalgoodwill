@@ -1,6 +1,8 @@
 //I am resource services hear me roar
 'use strict';
 
+console.log("in resource services");
+
 module.exports = function(app){
   var errorhandler = function(data){
     console.log(data);
