@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../../dev/CSS/application.css">
 
 
-<!-- template page for all roles -->
+<!-- template page for surplus role -->
 
 <div class="surplus-container">
   <div class="browse-column">
@@ -10,13 +10,12 @@
     <input name="search-item" type="text" placeholder="Item" required></label>
 
     <!--<label for="search-location" >Search by pickup location:-->
-
-    <select name="country">
-      <option value="None selected">Select pickup location (optional):</option>
-      <option value="Afghanistan">Afghanistan</option>
-      <option value="Albania">Albania</option>
-    </select>
     <!--<input name="search-location" type="text" placeholder="Location"></label>-->
+    <select name="location">
+      <option value="None selected">Select pickup location (optional):</option>
+      <option value="mog-som">New York, USA</option>
+      <option value="Albania">Los Angeles, USA</option>
+    </select>
     <button>Search</button>
 
     <div class="display-search">
@@ -45,8 +44,14 @@
       <label for="surplus-description" >Description:
       <input name="surplus-description" type="text" placeholder="Required" required></label>
 
-      <label for="surplus-location" >Pickup location:
-      <input name="surplus-location" type="text" placeholder="Required" required></label>
+      <label for="surplus-city" >Pickup city:
+      <input name="surplus-city" type="text"></label>
+
+      <label for="surplus-country" >Pickup country:
+      <input name="surplus-country" type="text" placeholder="Required" required></label>
+
+      <label for="surplus-expire" >Expiration Date:
+      <input name="surplus-expire" type="date" placeholder="Required" required></label>
 
     </form>
   </div>
