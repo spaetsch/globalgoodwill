@@ -15,7 +15,7 @@ var apiRouter = express.Router();
 app.use('/', apiRouter);
 
 //set db path
-mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/our-class-app');
+//mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/our-class-app');
 
 //static services
 app.use(express.static(path.join(__dirname, 'build'))); //serve everything inside public directory

@@ -6,14 +6,6 @@ html {
 *::before {
   box-sizing: inherit; }
 
-html {
-  box-sizing: border-box; }
-
-*,
-*::after,
-*::before {
-  box-sizing: inherit; }
-
 header {
   max-width: 68em;
   margin-left: auto;
@@ -30,7 +22,8 @@ header {
   display: block;
   margin-right: 2.35765%;
   width: 65.88078%;
-  background-color: green; }
+  padding-left: 1em;
+  background-color: #78726b; }
   .header--logo:last-child {
     margin-right: 0; }
 
@@ -39,7 +32,8 @@ header {
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  background-color: yellow; }
+  color: white;
+  text-align: right; }
   .header--login:last-child {
     margin-right: 0; }
 
