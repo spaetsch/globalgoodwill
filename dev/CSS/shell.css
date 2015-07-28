@@ -1,0 +1,10 @@
+header {
+  background-color: red;
+  padding: 2em 0.5em; }
+
+footer {
+  background-color: blue;
+  font-size: 0.75em;
+  float: left;
+  margin-top: 2.5em;
+  padding: 2em 4em; }
