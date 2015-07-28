@@ -18,7 +18,7 @@ app.use('/', apiRouter);
 mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/our-class-app');
 
 //static services
-app.use(express.static(path.join(__dirname, 'build'))); //serve everything inside public directory
+app.use(express.static(path.join(__dirname, '/build'))); //serve everything inside public directory
 
 //will need this for router
 //require('./routes/routes')(settingsRouter);
