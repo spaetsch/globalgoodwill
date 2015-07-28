@@ -5,9 +5,9 @@ var mongoose      = require('mongoose');
 var app           = express();
 
 var port          = process.env.PORT || 3000;
-var userRoutes    = express.Router();
+//var userRoutes    = express.Router();
 
-var path = require('path');
+//var path = require('path');
 
 // Route setup
 //var apiRouter = express.Router();
@@ -15,10 +15,10 @@ var path = require('path');
 //    require('./routes/' + route + '-routes')(apiRouter)
 //});
 
-app.use('/api', userRoutes);
+//app.use('/api', userRoutes);
 
 //set db path
-mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/our-class-app');
+//mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/our-class-app');
 
 //static services
 app.use(express.static(__dirname + '/build')); //serve everything inside public directory
