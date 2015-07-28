@@ -17,10 +17,10 @@ require('./users/controllers/user-controller')(goodwillApp);
 
 goodwillApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
-  // .when('/', {
-  //   templateUrl: './templates/homeTemplate.html',
+  .when('/', {
+    templateUrl: './templates/homeTemplate.html',
   //   controller: 'appController'
-  // })
+  })
   .when('/login', {
     templateUrl: './templates/userTemplate.html',
     controller: 'user-controller'
