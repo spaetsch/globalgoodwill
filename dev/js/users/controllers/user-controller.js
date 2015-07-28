@@ -14,7 +14,6 @@ module.exports = function(app) {
         $scope.users = response;
       });
     };
-    //getAll();
 
     $scope.submitForm = function(user) {
       User.submit(user, function(response) {

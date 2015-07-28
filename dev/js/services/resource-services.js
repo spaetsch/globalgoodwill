@@ -21,16 +21,16 @@ module.exports = function(app){
           })
           .success(callback)
           .error(errorhandler);
+        },
+        submit: function(resource, callback){
+          $http({
+            method: 'POST',
+            url: '/' + resourceName,
+            data: resource
+          })
+          .success(callback)
+          .error(errorhandler);
         }
-        // submit: function(resource, callback){
-        //   $http({
-        //     method: 'POST',
-        //     url: '/' + resourceName,
-        //     data: resource
-        //   })
-        //   .success(callback)
-        //   .error(errorhandler);
-        // }
       }
     }
   }]);
