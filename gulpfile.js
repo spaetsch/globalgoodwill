@@ -10,6 +10,8 @@ var webpack = require('gulp-webpack');
 var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 
+var bourbon = require('node-bourbon').includePaths;
+var neat = require('node-neat').includePaths;
 
 gulp.task('default', ['test', 'lint', 'watch'], function() {});
 
@@ -35,8 +37,18 @@ gulp.task('watch', function() {
 
 gulp.task('sass', function () {
   gulp.src('./dev/Sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({
+      // includePaths: require('node-bourbon').includePaths
+
+      // includePaths: require('node-neat').includePaths
+      includePaths: [].concat(bourbon, neat)
+    }
+
+          ).on('error', sass.logError))
     .pipe(gulp.dest('./dev/CSS/'));
+
+
+
 });
 
 gulp.task('sass:watch', function () {

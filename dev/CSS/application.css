@@ -6,6 +6,14 @@ html {
 *::before {
   box-sizing: inherit; }
 
+html {
+  box-sizing: border-box; }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit; }
+
 header {
   max-width: 68em;
   margin-left: auto;

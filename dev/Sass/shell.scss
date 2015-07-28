@@ -1,12 +1,26 @@
+@import "bourbon";
+@import "neat";
+
 header {
+  @include outer-container;
   background-color: red;
   padding: 2em 0.5em;
 }
 
+.header--logo {
+  @include span-columns(8);
+  background-color:green;
+}
+
+.header--login {
+  @include span-columns(4);
+  background-color:yellow;
+}
+
 footer {
+  @include outer-container;
   background-color: blue;
   font-size: 0.75em;
-  float: left;
   margin-top: 2.5em;
   padding: 2em 4em;
 }
