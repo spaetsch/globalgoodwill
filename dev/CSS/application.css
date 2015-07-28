@@ -71,7 +71,8 @@ footer {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 31.76157%; }
+  width: 31.76157%;
+  border: thin black solid; }
   .browse-column:last-child {
     margin-right: 0; }
 
@@ -80,7 +81,8 @@ footer {
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  border: thin black solid; }
+  border: thin black solid;
+  float: right; }
   .surplus-post:last-child {
     margin-right: 0; }
 
@@ -91,6 +93,14 @@ footer {
   width: 23.23176%;
   border: thin black solid; }
   .details:last-child {
+    margin-right: 0; }
+
+.spacer {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 6.17215%; }
+  .spacer:last-child {
     margin-right: 0; }
 
 .display-searchbox {

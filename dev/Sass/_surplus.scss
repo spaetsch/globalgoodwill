@@ -4,20 +4,21 @@
 
 .browse-column{
   @include span-columns(4);
+  border: thin black solid;
 }
 
 .surplus-post {
   @include span-columns(4);
   border: thin black solid;
-
+  float: right;
 }
 
 .details {
   @include span-columns(3);
   border: thin black solid;
 
-
 }
+
 
 .display-searchbox{
   height: 5em;
