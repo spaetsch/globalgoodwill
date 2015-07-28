@@ -23,7 +23,7 @@ app.use('/api', apiRouter);
 */
 
 //set db path
-mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/our-class-app');
+//mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/our-class-app');
 
 //will need this for router
 //require('./routes/routes')(settingsRouter);
