@@ -14,7 +14,7 @@ var userSchema  = Schema({
   city: String,
   zip: String,
   country: String,
-  role: String,
+  role: { type: String, required: true },
   logo_url: String,
   basic: {
     username: { type: String, required: true, unique: true },
