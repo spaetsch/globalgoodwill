@@ -57,3 +57,46 @@ footer {
   background-image: url("../Resources/herokids.jpg");
   width: 100%;
   border-width: 4em; }
+
+.surplus-container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .surplus-container::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.browse-column {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .browse-column:last-child {
+    margin-right: 0; }
+
+.surplus-post {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  border: thin black solid; }
+  .surplus-post:last-child {
+    margin-right: 0; }
+
+.details {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  border: thin black solid; }
+  .details:last-child {
+    margin-right: 0; }
+
+.display-searchbox {
+  height: 5em;
+  overflow: auto;
+  border: thin black solid; }
+
+label {
+  display: block; }
