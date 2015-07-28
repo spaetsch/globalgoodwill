@@ -2,17 +2,23 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('appController', ['$scope', 'resource', function($scope, resource) {
+  app.controller('user-controller', ['$scope', 'resource', function($scope, resource) {
 
-    var User = resource('users'); //is this the filename or location??
+    var User = resource('user-model'); //is this the filename or location??
 
-// old submit
-    // $scope.submitForm = function(donut) {
-    //   console.log(donut.day);
-    //   Donut.submit(donut, function(response) {
-    //     getAll();
-    //   });
-    // };
+    var getAll = function(){
+      User.getAll(function(response){
+        console.log("inside getall", response);
+        $scope.users = response;
+      });
+    };
+    getAll();
+
+    $scope.submitForm = function(user) {
+      User.submit(user, function(response) {
+
+      });
+    };
 
     };
   }])};

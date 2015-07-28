@@ -26,10 +26,6 @@ mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/ourclassapp');
 //static services
 app.use(express.static(path.join(__dirname, 'build'))); //serve everything inside public directory
 
-//will need this for router
-//require('./routes/routes')(settingsRouter);
-//app.use('/', settingsRouter);
-
 //listen for requests on port
 app.listen(port, function() {
   console.log('Server available at localhost: ' + port);

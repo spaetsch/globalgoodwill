@@ -11,15 +11,15 @@ module.exports = function(app){
       return {
         //object that contains functions
         //define based on our controller
-        //from donuts
-        // getAll: function(callback){
-        //   $http({
-        //     method: 'GET',
-        //     url: '/' + resourceName
-        //   })
-        //   .success(callback)
-        //   .error(errorhandler);
-        // },
+
+        getAll: function(callback){
+          $http({
+            method: 'GET',
+            url: '/' + resourceName
+          })
+          .success(callback)
+          .error(errorhandler);
+        }
         // submit: function(resource, callback){
         //   $http({
         //     method: 'POST',
