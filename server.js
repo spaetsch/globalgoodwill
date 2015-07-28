@@ -14,7 +14,7 @@ app.use(express.static(__dirname + '/build')); //serve everything inside public 
 
 // Route setup
 var apiRouter = express.Router();
-['users', 'nonprofits'].forEach(function(route) {
+['user'].forEach(function(route) {
     require('./routes/' + route + '-routes')(apiRouter)
 });
 
