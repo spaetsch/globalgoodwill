@@ -1,5 +1,32 @@
+.hero_image_container {
+  position:relative;
+}
+
 .hero_image {
+  @include span-columns(12);
   background-image: $hero-image;
+  background-size:cover;
+  height: 45em;
   width:100%;
-  border-width: 4em;
+  clear:both;
+  border-top: solid $accent-color_1 1.25em;
+  border-bottom: solid $accent-color_1 1.25em;
+  margin-bottom: 5%;
+}
+
+.descriptive_section {
+  @include span-columns(4);
+  padding: 5%;
+  margin-top: 2em;
+  border-right: solid $lighter-accent-color_1 0.2em;
+  text-align: center;
+}
+
+.home_title {
+  text-align: center;
+  color: $accent-color_1;
+}
+
+.no-border-right {
+  border-right: 0;
 }
