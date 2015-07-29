@@ -1,5 +1,6 @@
 var User        = require('../models/user-model.js');
 var bodyParser  = require('body-parser');
+var eat         = require('eat');
 
 module.exports  = function(router, passport) {
   router.use(bodyParser.json());
@@ -22,21 +23,6 @@ module.exports  = function(router, passport) {
           newUser.country             = req.body.country;
           newUser.role                = req.body.role;
 
-
-  //list all users
-  router.get('/', function(request, response) {
-    //req.params.id
-    User.find({}, function(err, data) {
-
-      if (err) {
-        response.status(500).json({msg: 'failed'})
-      }else{
-        //response.status(200).json(data);
-        response.status(200).json({msg: 'succeeded'});
-      }
-    });
-  });
-
           newUser.save(function(err, user) {
             if (err) {
               console.log(err);
@@ -49,7 +35,7 @@ module.exports  = function(router, passport) {
                 return res.status(500).json({msg: 'error generating token'});
               }
 
-              res.json({token: token});
+              res.json({token: token, role: newUser.role});
             });
           });
         })
@@ -76,16 +62,25 @@ module.exports  = function(router, passport) {
           });
         });
 
-  // '{"username":"myName", "password":"myPass"}'
+  // '{"username":"tom", "password":"tomPass"}'
   router.route('/sign_in')
         .post(passport.authenticate('basic', {session: false}), function(req, res) {
               req.user.generateToken(process.env.APP_SECRET, function(err, token) {
                 if (err) {
                   return res.status(500).json({msg: 'failed'});
                 }else{
-                  res.status(200).json({token: token});
+                  decodeToken(token, function(err, data) {
+                    console.log(data.id)
+                    User.findById(data.id, function(err, user) {
+                      res.status(200).json({token: token, role: user.role});
+                    });
+                  });
                 }
               });
         });
+
+  function decodeToken(token, callback) {
+    eat.decode(token, process.env.APP_SECRET, callback);
+  };
 }
 
