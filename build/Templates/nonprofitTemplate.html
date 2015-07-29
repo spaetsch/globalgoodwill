@@ -1,6 +1,6 @@
 <!-- template page for nonprofit role -->
 
-<div class="nonprofit-container">
+<div class="nonprofit-container" data-ng-controller="nonprofit-controller" >
   <div class="browse-column">
     <h2>Search Available Donations</h2>
     <label for="search-item" >Search donated items:
@@ -28,22 +28,23 @@
     <button>Select</button>
   </div>
 
-  <div class="surplus-post">
+  <div class="nonprofit-post">
     <h2>Post a Need</h2>
     <form>
-      <label for="surplus-item" >Item needed:
-      <input name="surplus-item" type="text" placeholder="Required" required></label>
+      <label for="nonprofit-item" >Item needed:
+      <input name="nonprofit-item" type="text" placeholder="Required" required></label>
 
-      <label for="surplus-quantity" >Quantity:
-      <input name="surplus-quantity" type="number" min="1" placeholder="Required" required></label>
+      <label for="nonprofit-quantity" >Quantity:
+      <input name="nonprofit-quantity" type="number" min="1" placeholder="Required" required></label>
 
-      <label for="surplus-description" >Description:
-      <input name="surplus-description" type="text" placeholder="Required" required></label>
+      <label for="nonprofit-description" >Description:
+      <input name="nonprofit-description" type="text" placeholder="Required" required></label>
 
-      <label for="surplus-country" >Destination country:
-      <input name="surplus-country" type="text" placeholder="Required" required></label>
+      <label for="nonprofit-country" >Destination country:
+      <input name="nonprofit-country" type="text" placeholder="Required" required></label>
 
-
+      <label for="nonprofit-token" ><h4>FOR TESTING PURPOSES ONLY</h4>user ID for token:
+      <input name="nonprofit-token" type="text" data-ng-model="nonprofit.token" value="55b916f3efc502c9b4307332" placeholder="55b916f3efc502c9b4307332"></label>
 
     </form>
   </div>

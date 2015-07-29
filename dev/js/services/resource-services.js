@@ -31,6 +31,7 @@ module.exports = function(app){
           .success(callback)
           .error(errorhandler);
         }
+      }
     }
   }]);
 }
