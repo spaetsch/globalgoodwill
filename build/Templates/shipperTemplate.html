@@ -1,13 +1,13 @@
-<!-- template page for surplus role -->
+<!-- template page for shipper role -->
 
-<div class="surplus-container" >
+<div class="shipper-container">
   <div class="browse-column">
-    <h2>Search Non-profit's wish lists</h2>
-    <label for="search-item" >Search wish lists:
-    <input name="search-item" type="text" placeholder="Item" required></label>
+    <h2>Search wish lists</h2>
+    <label for="search-origin" >Search origin location:
+    <input name="search-origin" type="text" placeholder="Country" required></label>
 
-    <label for="search-location" >Search by pickup location:
-    <input name="search-location" type="text" placeholder="Country"></label>
+    <label for="search-destination" >Search destination location:
+    <input name="search-destination" type="text" placeholder="Country"></label>
 
     <button>Search</button>
 
@@ -22,32 +22,23 @@
   </div>
 
   <div class="details">
-    <h2>Item Details</h2>
+    <h2>Details</h2>
     <p>
     Corrupted plastic rebar drugs 3D-printed into dolphin car receding smart-neural dissident. Semiotics physical free-market cyber-rebar nano-RAF dead San Francisco soul-delay corporation franchise euro-pop Shibuya. Knife Kowloon courier bomb 8-bit katana wristwatch plastic m advert tank-traps table dome semiotics free-market futurity into drone paranoid.</p>
     <button>Select</button>
   </div>
 
-  <div class="surplus-post">
-    <h2>Post a Donation</h2>
+  <div class="shipper-post">
+    <h2>Donating a shipping route</h2>
     <form>
-      <label for="surplus-item" >Item to donate:
-      <input name="surplus-item" type="text" placeholder="Required" required></label>
+      <label for="shipper-origin" >Pickup city:
+      <input name="shipper-origin" type="text"></label>
 
-      <label for="surplus-quantity" >Quantity:
-      <input name="surplus-quantity" type="number" min="1" placeholder="Required" required></label>
+      <label for="shipper-destination" >Destination country:
+      <input name="shipper-destination" type="text"></label>
 
-      <label for="surplus-description" >Description:
-      <input name="surplus-description" type="text" placeholder="Required" required></label>
-
-      <label for="surplus-city" >Pickup city:
-      <input name="surplus-city" type="text"></label>
-
-      <label for="surplus-country" >Pickup country:
-      <input name="surplus-country" type="text" placeholder="Required" required></label>
-
-      <label for="surplus-expire" >Expiration Date:
-      <input name="surplus-expire" type="date" placeholder="Required" required></label>
+      <label for="shipper-date" >Date available:
+      <input name="shipper-date" type="date" ></label>
 
       <button>Post</button>
 
