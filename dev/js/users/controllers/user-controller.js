@@ -6,7 +6,7 @@ console.log("in user-controller.js");
 module.exports = function(app) {
   app.controller('user-controller', ['$scope', 'resource', function($scope, resource) {
 
-    var User = resource('user-model'); //is this the filename or location??
+    var User = resource('users'); //is this the filename or location??
 
     $scope.getAll = function(){
       User.getAll(function(response){
@@ -17,7 +17,7 @@ module.exports = function(app) {
 
     $scope.submitForm = function(user) {
       User.submit(user, function(response) {
-
+        console.log("i'm in submitForm");
       });
     };
 

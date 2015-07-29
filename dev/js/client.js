@@ -17,7 +17,7 @@ require('./users/controllers/user-controller')(goodwillApp);
 
 goodwillApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
-  .when('/', {
+  .when('/home', {
     templateUrl: './templates/homeTemplate.html',
   //   controller: 'appController'
   })
@@ -26,7 +26,7 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
     controller: 'user-controller'
   })
   .otherwise({
-    redirectTo: '/'
+    redirectTo: '/home'
     });
 }]);
 
