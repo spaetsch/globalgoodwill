@@ -7,13 +7,6 @@ module.exports = function(app) {
 
     var Surplus = resource('surplus'); //this corresponds to URL from routes
 
-    $scope.getAll = function(){
-      Surplus.getAll(function(response){
-        console.log("inside surplus getall", response);
-        $scope.users = response;
-      });
-    };
-
     $scope.submitForm = function(surplus) {
       console.log("surplus", surplus);
       Surplus.submit(surplus, function(response) {
