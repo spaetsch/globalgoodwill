@@ -28,7 +28,7 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
     //controller: 'user-controller'
   })
   .otherwise({
-    redirectTo: '/'
+    redirectTo: '/home'
     });
 }]);
 
