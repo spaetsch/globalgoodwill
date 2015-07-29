@@ -23,9 +23,13 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
     templateUrl: './templates/userTemplate.html',
     controller: 'user-controller'
   })
-    .when('/surplus', {
+  .when('/surplus', {
     templateUrl: './templates/surplusTemplate.html',
-    //controller: 'user-controller'
+    //controller: 'surplus-controller'
+  })
+  .when('/nonprofit', {
+    templateUrl: './templates/nonprofitTemplate.html',
+    //controller: 'nonprofit-controller'
   })
   .otherwise({
     redirectTo: '/home'
