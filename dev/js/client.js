@@ -1,5 +1,3 @@
-//I am client.js
-
 console.log("in client.js");
 
 'use strict';
@@ -17,7 +15,7 @@ require('./users/controllers/user-controller')(goodwillApp);
 
 goodwillApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
-  .when('/', {
+  .when('/home', {
     templateUrl: './templates/homeTemplate.html',
   //   controller: 'appController'
   })

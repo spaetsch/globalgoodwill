@@ -1,32 +1,27 @@
-<!-- <link rel="stylesheet" href="../../dev/CSS/application.css">
- -->
-
 <div data-ng-controller="user-controller" class="flex-container__login">
   <form class="account-form" id="signup-form">
     <h4>Sign Up</h4>
 
     <label for="new-organization-input">Organization</label>
-    <input type="text" id="organization" name="new-organization-input" required autocomplete="off" />
+    <input type="text" id="organization" name="new-organization-input" data-ng-model="newUser.organization_name" required autocomplete="off" />
 
-    <select name="new-role-input" required>
-      <option value="None selected">Role</option>
+    <select name="new-role-input" data-ng-model="newUser.role" required>
       <option value="Surplus">Surplus Donor</option>
       <option value="Shipper">Shipping Donor</option>
       <option value="Charity">Charity</option>
     </select>
 
-
     <label for="new-email-input">Email Address</label>
-    <input type="email" id="new-email" name="new-email-input" required autocomplete="off" />
+    <input type="email" id="new-email" name="new-email-input" data-ng-model="newUser.email"required autocomplete="off" />
 
      <label for="new-username">Username</label>
-    <input type="text" id="new-username" name="new-username" required autocomplete="off" />
+    <input type="text" id="new-username" name="new-username" data-ng-model="newUser.username"required autocomplete="off" />
 
     <label for="new-password">Set Password</label>
-    <input type="password" id="new-password" name="new-password" required autocomplete="off" />
+    <input type="password" id="new-password" name="new-password" data-ng-model="newUser.password" required autocomplete="off" />
     <br>
 
-    <button type="submit" id="registerButton" ng-click="submitForm">Register</button>
+    <button type="submit" id="registerButton" ng-click="submitForm(newUser)">Register</button>
   </form>
 
   <form class="account-form" id="login-form">

@@ -18,8 +18,13 @@ var apiRouter = express.Router();
 ['user', 'surplus', 'shipment', 'nonprofit'].forEach(function(route) {
     require('./routes/' + route + '-routes')(apiRouter, passport)
 });
-
 app.use('/api', apiRouter);
+
+
+//for testing
+// require('./routes/smp-routes')(apiRouter);
+// app.use('/', apiRouter);
+
 
 mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/ourclassapp');
 

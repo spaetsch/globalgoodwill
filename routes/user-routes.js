@@ -4,7 +4,7 @@ var bodyParser  = require('body-parser');
 module.exports  = function(router, passport) {
   router.use(bodyParser.json());
   //create a new user
-  // '{"username":"myName", "password":"myPass", "orginitation":"myOrg", "email":"you@you.com","phone":"555-555-5555", "address":"555 5th ave", "city":"seattle", "zip":"55555", "country":"United States", "role":"Squirel"}'
+  // '{"username":"myName", "password":"myPass", "organization":"myOrg", "email":"you@you.com","phone":"555-555-5555", "address":"555 5th ave", "city":"seattle", "zip":"55555", "country":"United States", "role":"Squirel"}'
   router.route('/create_user')
         .post(function(req, res) {
           var newUserData             = JSON.parse(JSON.stringify(req.body));
@@ -14,7 +14,7 @@ module.exports  = function(router, passport) {
           newUser.basic.username      = req.body.username;
           newUser.email               = req.body.email;
           newUser.basic.password_hash = newUser.generateHash(req.body.password);
-          newUser.orginitation_name   = req.body.orginitation;
+          newUser.organization_name   = req.body.organization;
           newUser.phone               = req.body.phone;
           newUser.address             = req.body.address;
           newUser.city                = req.body.city;

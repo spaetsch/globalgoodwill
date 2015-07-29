@@ -7,7 +7,7 @@ var Schema      = mongoose.Schema;
 var SALT_WORK_FACTOR = 8;
 
 var userSchema  = Schema({
-  orginitation_name: String,
+  organization_name: String,
   email: String,
   phone: String,
   address: String,
@@ -27,7 +27,7 @@ userSchema.methods.generateHash   = function(password) {
 };
 
 userSchema.methods.checkPassword  = function(password) {
-  return bcrypt.compareSync(password, this.basic.password_hash); 
+  return bcrypt.compareSync(password, this.basic.password_hash);
 };
 
 userSchema.methods.generateToken  = function(secret, callback) {
