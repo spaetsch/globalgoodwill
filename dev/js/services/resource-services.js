@@ -1,4 +1,3 @@
-//I am resource services hear me roar
 'use strict';
 
 console.log("in resource services");
@@ -13,7 +12,6 @@ module.exports = function(app){
       return {
         //object that contains functions
         //define based on our controller
-
         getAll: function(callback){
           $http({
             method: 'GET',
@@ -27,7 +25,7 @@ module.exports = function(app){
           console.log("submit resource ", resource);
           $http({
             method: 'POST',
-            url: '/api/' + resourceName,
+            url: '/api/' + resourceName,  //needs /api/ to match up with server.js app.use
             data: resource
           })
           .success(callback)

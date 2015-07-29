@@ -4,7 +4,7 @@ var bodyParser  = require('body-parser');
 module.exports  = function(router, passport) {
   router.use(bodyParser.json());
   //create a new user
-  // '{"username":"myName", "password":"myPass", "orginitation":"myOrg", "email":"you@you.com","phone":"555-555-5555", "address":"555 5th ave", "city":"seattle", "zip":"55555", "country":"United States", "role":"Squirel"}'
+  // '{"username":"myName", "password":"myPass", "organization":"myOrg", "email":"you@you.com","phone":"555-555-5555", "address":"555 5th ave", "city":"seattle", "zip":"55555", "country":"United States", "role":"Squirel"}'
   router.route('/create_user')
         .post(function(req, res) {
           var newUserData             = JSON.parse(JSON.stringify(req.body));

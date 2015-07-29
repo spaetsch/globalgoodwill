@@ -21,6 +21,7 @@ var apiRouter = express.Router();
 app.use('/api', apiRouter);
 
 
+//for testing
 // require('./routes/smp-routes')(apiRouter);
 // app.use('/', apiRouter);
 

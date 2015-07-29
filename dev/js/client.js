@@ -1,5 +1,3 @@
-//I am client.js
-
 console.log("in client.js");
 
 'use strict';
@@ -26,7 +24,7 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
     controller: 'user-controller'
   })
   .otherwise({
-    redirectTo: '/home'
+    redirectTo: '/'
     });
 }]);
 
