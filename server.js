@@ -15,14 +15,14 @@ process.env.APP_SECRET = process.env.APP_SECRET || 'changethischangethischangeti
 // Route setup
 app.use(passport.initialize());
 var apiRouter = express.Router();
-// ['user', 'surplus', 'shipment', 'nonprofit'].forEach(function(route) {
-//     require('./routes/' + route + '-routes')(apiRouter, passport)
-// });
-//app.use('/api', apiRouter);
+['user', 'surplus', 'shipment', 'nonprofit'].forEach(function(route) {
+    require('./routes/' + route + '-routes')(apiRouter, passport)
+});
+app.use('/api', apiRouter);
 
 
-require('./routes/smp-routes')(apiRouter);
-app.use('/', apiRouter);
+// require('./routes/smp-routes')(apiRouter);
+// app.use('/', apiRouter);
 
 
 mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/ourclassapp');

@@ -6,7 +6,7 @@ console.log("in user-controller.js");
 module.exports = function(app) {
   app.controller('user-controller', ['$scope', 'resource', function($scope, resource) {
 
-    var User = resource('users'); //is this the filename or location??
+    var User = resource('create_user'); //is this the filename or location??
 
     $scope.getAll = function(){
       User.getAll(function(response){

@@ -27,7 +27,7 @@ module.exports = function(app){
           console.log("submit resource ", resource);
           $http({
             method: 'POST',
-            url: '/' + resourceName,
+            url: '/api/' + resourceName,
             data: resource
           })
           .success(callback)
