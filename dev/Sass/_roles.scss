@@ -1,0 +1,29 @@
+.role-container{
+  @include outer-container;
+}
+
+.browse-column{
+  @include span-columns(4);
+  border: thin black solid;
+}
+.display-searchbox{
+  height: 5em;
+  overflow: auto;
+  border: thin black solid;
+}
+.details {
+  @include span-columns(3);
+  border: thin black solid;
+}
+.postItem-column {
+  @include span-columns(4);
+  border: thin black solid;
+  float: right;
+}
+
+label {
+  display: block;
+}
+button{
+
+}

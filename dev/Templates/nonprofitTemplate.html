@@ -32,13 +32,13 @@
     <h2>Post a Need</h2>
     <form>
       <label for="nonprofit-item" >Item needed:
-      <input name="nonprofit-item" type="text" placeholder="Required" required data-ng-model="nonprofit.itemName"></label>
+      <input name="nonprofit-item" type="text" placeholder="Required" required data-ng-model="nonprofit.itemNeeded"></label>
 
       <label for="nonprofit-description" >Description:
       <input name="nonprofit-description" type="text" placeholder="Required" required data-ng-model="nonprofit.description"></label>
 
       <label for="nonprofit-country" >Destination country:
-      <input name="nonprofit-country" type="text" placeholder="Required" required data-ng-model="surplus.originCountry"></label>
+      <input name="nonprofit-country" type="text" placeholder="Required" required data-ng-model="nonprofit.destCountry"></label>
 
       <button ng-click="submitForm(nonprofit)">Post</button>
 
