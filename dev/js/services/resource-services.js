@@ -30,6 +30,18 @@ module.exports = function(app){
           })
           .success(callback)
           .error(errorhandler);
+        },
+        postItem: function(resource, callback){
+          console.log("in resource services postItem");
+          console.log("submit resourceName ", resourceName);
+          console.log("submit resource ", resource);
+          $http({
+            method: 'POST',
+            url: '/api/' + resourceName , //needs /api/ to match up with server.js app.use
+            data: resource
+          })
+          .success(callback)
+          .error(errorhandler);
         }
       }
     }

@@ -12,6 +12,8 @@ require('./services/resource-services')(goodwillApp);
 
 // controllers
 require('./users/controllers/user-controller')(goodwillApp);
+require('./surplus/controllers/surplus-controller')(goodwillApp);
+
 
 goodwillApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
@@ -25,7 +27,7 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
   })
   .when('/surplus', {
     templateUrl: './templates/surplusTemplate.html',
-    //controller: 'surplus-controller'
+    controller: 'surplus-controller'
   })
   .when('/nonprofit', {
     templateUrl: './templates/nonprofitTemplate.html',

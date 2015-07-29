@@ -12,7 +12,7 @@ module.exports  = function(router, passport) {
           delete newUserData.username;
           delete newUserData.password;
           var newUser                 = new User(newUserData);
-          newUser.basic.username      = req.body.username;
+          newUser.basic.username      = req.body.token; //userid sent as token
           newUser.email               = req.body.email;
           newUser.basic.password_hash = newUser.generateHash(req.body.password);
           newUser.organization_name   = req.body.organization;
