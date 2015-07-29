@@ -21,8 +21,13 @@ module.exports = function(router) {
   router.post('/users', function(req, res) {
     console.log('You hit the post')
     var newUser = new User(req.body);
-    console.log(req.body);
+    newUser.basic.username = req.body.username;
+    newUser.basic.password_hash = newUser.generateHash(req.body.password);
+    console.log(newUser);
+
     newUser.save({}, function(err, data) {
+      console.log("newUser save err ", err);
+      console.log("newUser save data ", data);
       if (err){
         errorResponse(err, res);
         return;

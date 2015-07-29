@@ -16,6 +16,9 @@ module.exports = function(app) {
     };
 
     $scope.submitForm = function(user) {
+      console.log("i'm trying to get to submitForm. Help?");
+      console.log("newUser", user);
+      console.log("User ", User);
       User.submit(user, function(response) {
         console.log("i'm in submitForm");
       });

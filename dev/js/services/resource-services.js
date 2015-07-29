@@ -23,6 +23,8 @@ module.exports = function(app){
           .error(errorhandler);
         },
         submit: function(resource, callback){
+          console.log("submit resourceName ", resourceName);
+          console.log("submit resource ", resource);
           $http({
             method: 'POST',
             url: '/' + resourceName,

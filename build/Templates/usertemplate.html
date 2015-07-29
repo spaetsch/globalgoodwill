@@ -8,11 +8,10 @@
     <label for="new-organization-input">Organization</label>
     <input type="text" id="organization" name="new-organization-input" data-ng-model="newUser.organization_name" required autocomplete="off" />
 
-    <select name="new-role-input" required>
-      <option value="None selected">Role</option>
-      <option value="Surplus" data-ng-model="newUser.role">Surplus Donor</option>
-      <option value="Shipper" data-ng-model="newUser.role">Shipping Donor</option>
-      <option value="Charity" data-ng-model="newUser.role">Charity</option>
+    <select name="new-role-input" data-ng-model="newUser.role" required>
+      <option value="Surplus">Surplus Donor</option>
+      <option value="Shipper">Shipping Donor</option>
+      <option value="Charity">Charity</option>
     </select>
 
 
@@ -26,7 +25,7 @@
     <input type="password" id="new-password" name="new-password" data-ng-model="newUser.password" required autocomplete="off" />
     <br>
 
-    <button type="submit" id="registerButton" ng-click="submitForm">Register</button>
+    <button type="submit" id="registerButton" ng-click="submitForm(newUser)">Register</button>
   </form>
 
   <form class="account-form" id="login-form">
