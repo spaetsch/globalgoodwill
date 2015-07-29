@@ -20,12 +20,4 @@ module.exports = function(app) {
         console.log("i'm in surplus submitForm");
       });
     };
-
-    $scope.postItem = function(surplus) {
-      console.log("surplus post called", surplus);
-      Surplus.postItem(surplus, function(response) {
-        console.log("i'm in surplus postItem");
-      });
-    };
-
   }])};

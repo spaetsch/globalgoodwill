@@ -31,11 +31,11 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
   })
   .when('/nonprofit', {
     templateUrl: './templates/nonprofitTemplate.html',
-    //controller: 'nonprofit-controller'
+    controller: 'nonprofit-controller'
   })
     .when('/shipper', {
     templateUrl: './templates/shipperTemplate.html',
-    //controller: 'shipper-controller'
+    controller: 'shipper-controller'
   })
   .otherwise({
     redirectTo: '/home'
