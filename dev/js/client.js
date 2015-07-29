@@ -13,8 +13,8 @@ require('./services/resource-services')(goodwillApp);
 // controllers
 require('./users/controllers/user-controller')(goodwillApp);
 require('./surplus/controllers/surplus-controller')(goodwillApp);
-require('./shipper/controllers/shipper-controller')(goodwillApp);
 require('./nonprofit/controllers/nonprofit-controller')(goodwillApp);
+require('./shipper/controllers/shipper-controller')(goodwillApp);
 
 goodwillApp.config(['$routeProvider', function($routeProvider){
   $routeProvider

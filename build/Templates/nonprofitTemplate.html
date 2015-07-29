@@ -1,6 +1,6 @@
 <!-- template page for nonprofit role -->
 
-<div class="nonprofit-container" data-ng-controller="nonprofit-controller" >
+<div class="role-container" data-ng-controller="nonprofit-controller" >
   <div class="browse-column">
     <h2>Search Available Donations</h2>
     <label for="search-item" >Search donated items:
@@ -28,20 +28,19 @@
     <button>Select</button>
   </div>
 
-  <div class="nonprofit-post">
+  <div class="postItem-column">
     <h2>Post a Need</h2>
     <form>
       <label for="nonprofit-item" >Item needed:
-      <input name="nonprofit-item" type="text" placeholder="Required" required></label>
-
-      <label for="nonprofit-quantity" >Quantity:
-      <input name="nonprofit-quantity" type="number" min="1" placeholder="Required" required></label>
+      <input name="nonprofit-item" type="text" placeholder="Required" required data-ng-model="nonprofit.itemName"></label>
 
       <label for="nonprofit-description" >Description:
-      <input name="nonprofit-description" type="text" placeholder="Required" required></label>
+      <input name="nonprofit-description" type="text" placeholder="Required" required data-ng-model="nonprofit.description"></label>
 
       <label for="nonprofit-country" >Destination country:
-      <input name="nonprofit-country" type="text" placeholder="Required" required></label>
+      <input name="nonprofit-country" type="text" placeholder="Required" required data-ng-model="surplus.originCountry"></label>
+
+      <button ng-click="submitForm(nonprofit)">Post</button>
 
       <label for="nonprofit-token" ><h4>FOR TESTING PURPOSES ONLY</h4>user ID for token:
       <input name="nonprofit-token" type="text" data-ng-model="nonprofit.token" value="55b916f3efc502c9b4307332" placeholder="55b916f3efc502c9b4307332"></label>

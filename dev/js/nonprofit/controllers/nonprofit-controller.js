@@ -1,16 +1,16 @@
 'use strict';
 
-console.log("in surplus-controller.js");
+console.log("in nonprofit-controller.js");
 
 module.exports = function(app) {
-  app.controller('surplus-controller', ['$scope', 'resource', function($scope, resource) {
+  app.controller('nonprofit-controller', ['$scope', 'resource', function($scope, resource) {
 
-    var Surplus = resource('surplus'); //this corresponds to URL from routes
+    var Nonprofit = resource('create_nonprofit'); //this corresponds to URL from routes
 
-    $scope.submitForm = function(surplus) {
-      console.log("surplus", surplus);
-      Surplus.submit(surplus, function(response) {
-        console.log("i'm in surplus submitForm");
+    $scope.submitForm = function(nonprofit) {
+      console.log("nonprofit", nonprofit);
+      Nonprofit.submit(nonprofit, function(response) {
+        console.log("i'm in nonprofit submitForm");
       });
     };
   }])};

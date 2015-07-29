@@ -10,6 +10,9 @@ module.exports  = function(router, passport) {
   router.route('/surplus')
         // '{"itemName":"gotItem","description":"this is an item","originAddress":"a new address","originCity":"Acity","originState":"Astate","originZip":"Azip","originCountry":"Acountry","dateAvailable":"Adate","dateExpires":"AexpireDate"}'
         .post(function(req, res) {
+
+          //I AM A HACKED VERSION OF ROUTES FOR TESTING PURPOSES
+
          // decodeToken(req.body.token, function(err, data) {
             console.log('data: ', req.body.token);
             //User.findOne(data.id, function(err, user){
