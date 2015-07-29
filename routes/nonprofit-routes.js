@@ -8,7 +8,7 @@ var eat         = require('eat');
 module.exports  = function(router, passport) {
   router.use(bodyParser.json());
 
-   router.route('/nonprofit')
+   router.route('/create_nonprofit')
 
          .post(function(req, res) {
             console.log(req.body);
@@ -27,7 +27,7 @@ module.exports  = function(router, passport) {
               newNonprofit.destZip = req.body.destZip;
               newNonprofit.destCountry = req.body.destCountry;
 
-              newNonprofit.save(function(err, user) {
+              newNonprofit.save(function(err) {
                 if(err)
                   res.status(500).json({msg: "Internal Server Error"});
                 res.status(200).json({msg: "Success"});
