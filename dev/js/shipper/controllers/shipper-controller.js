@@ -1,6 +1,5 @@
 'use strict';
 
-console.log("in shipper-controller.js");
 
 module.exports = function(app) {
   app.controller('shipper-controller', ['$scope', 'resource', function($scope, resource) {

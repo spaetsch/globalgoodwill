@@ -44,10 +44,17 @@ img {
   border: 0; }
 
 body {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #e1e0de;
   margin-top: 0;
   font-family: "Raleway", serif;
   font-size: 1.25em; }
+  body::after {
+    clear: both;
+    content: "";
+    display: table; }
 
 button {
   color: white;
