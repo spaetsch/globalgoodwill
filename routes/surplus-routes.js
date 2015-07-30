@@ -13,22 +13,25 @@ module.exports  = function(router, passport) {
   router.route('/surplus')
         // '{"token": "K2Q3Oafk5oAq5M6xRCjxztO6MoxWxe0yvGEYw/S9rG16","itemName":"gotItem","description":"this is an item","originAddress":"a new address","originCity":"Acity","originState":"Astate","originZip":"Azip","originCountry":"Acountry","dateAvailable":"Adate","dateExpires":"AexpireDate"}'
         .post(function(req, res) {
-          decodeToken(req.body.token, function(err, data) {
-            console.log('data: ', data, req.body.token);
+
+          //I AM A HACKED VERSION OF ROUTES FOR TESTING PURPOSES
+
+         // decodeToken(req.body.token, function(err, data) {
+            console.log('data: ', req.body.token);
             //User.findOne(data.id, function(err, user){
 
-              if(err){
-                res.status(500).json({msg: 'server error'});
-              }else{
+              //if(err){
+              //  res.status(500).json({msg: 'server error'});
+              //}else{
 
                 var newSurplus              = new Surplus();
-                newSurplus.userId           = data.id;
+                newSurplus.userId           = req.body.token; //data.id;
                 newSurplus.itemName         = req.body.itemName;
                 newSurplus.description      = req.body.description;
                 newSurplus.originAddress    = req.body.originAddress;
                 newSurplus.originCity       = req.body.originCity;
                 newSurplus.originState      = req.body.originState;
-                newSurplus.originZip        = req.body.originZip; 
+                newSurplus.originZip        = req.body.originZip;
                 newSurplus.originCountry    = req.body.originCountry;
                 newSurplus.dateAvailable    = req.body.dateAvailable;
                 newSurplus.dateExpires      = req.body.dateExpires;
@@ -41,16 +44,16 @@ module.exports  = function(router, passport) {
                     res.status(200).json({msg: 'Succeed'})
                   }
                 });
-              }
+              //}
             //});
-          });
+          //});
         })
 
         .get(function(req, res) {
           //req.params.id
           //Surplus.decodeToken(process.env.APP_SECRET, function(err, token) {
             Surplus.find({}, function(err, data) {
-              
+
               if (err) {
                 res.status(500).json({msg: 'failed'})
               }else{
@@ -70,6 +73,7 @@ module.exports  = function(router, passport) {
         //     }
         //   });
         // });
+
 
   //  superagent localhost:3000/api/surplus/72YiOyFuhFTvaZhcdd27Hf7naIGBDIl8qQfRwH8tBQWp/usa/shoes get
   // '{"token":"Tm+F7CjLq0ReeOpAYvd2bx20LXg97VJpSQ1WQHSe445D","location":"usa",itemName":"shoes"}'
@@ -107,12 +111,12 @@ module.exports  = function(router, passport) {
                                               if(!isNonprofitUsed){
                                                 isNonprofitUsed = true;
                                                 reqNonprofitArray.push(nonprofitList[i]);
-                                              } 
+                                              }
                                               reqShipmentArray.push(shipmentList[j]);
                                             }
                                           }
                                         }
-                                        
+
                                         res.status(200).json({ship: reqShipmentArray, nonprof: reqNonprofitArray})
                                       }
 

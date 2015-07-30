@@ -12,7 +12,7 @@ module.exports  = function(router, passport) {
           delete newUserData.username;
           delete newUserData.password;
           var newUser                 = new User(newUserData);
-          newUser.basic.username      = req.body.username;
+          newUser.basic.username      = req.body.username; //userid sent as token
           newUser.email               = req.body.email;
           newUser.basic.password_hash = newUser.generateHash(req.body.password);
           newUser.organization_name   = req.body.organization;
@@ -64,20 +64,18 @@ module.exports  = function(router, passport) {
 
   // '{"username":"tom", "password":"tomPass"}'
   router.route('/sign_in')
-        .post(passport.authenticate('basic', {session: false}), function(req, res) {
-              req.user.generateToken(process.env.APP_SECRET, function(err, token) {
-                if (err) {
-                  return res.status(500).json({msg: 'failed'});
-                }else{
-                  decodeToken(token, function(err, data) {
-                    console.log(data.id)
-                    User.findById(data.id, function(err, user) {
-                      res.status(200).json({token: token, role: user.role});
-                    });
-                  });
-                }
+        .post(/*passport.authenticate('basic', {session: false}),*/ function(req, res) {
+          User.findOne({ "basic.username": req.body.username })
+              .exec(function(err, user){
+                generateToken(user._id, function(err, token) {
+                  res.status(200).json({token: token, role: user.role});
+                });
               });
         });
+
+  function generateToken(id, callback) {
+    eat.encode({id: id}, process.env.APP_SECRET, callback);
+  };
 
   function decodeToken(token, callback) {
     eat.decode(token, process.env.APP_SECRET, callback);

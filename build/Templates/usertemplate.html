@@ -20,9 +20,10 @@
     <input type="text" id="organization" name="new-organization-input" data-ng-model="newUser.organization_name" required autocomplete="off" />
 
     <select name="new-role-input" data-ng-model="newUser.role" required>
-      <option value="Surplus">Surplus Donor</option>
-      <option value="Shipper">Shipping Donor</option>
-      <option value="Charity">Charity</option>
+      <option value="">Please select your role</option>
+      <option value="surplus">Surplus</option>
+      <option value="shipper">Shipper</option>
+      <option value="nonprofit">Non-profit</option>
     </select>
 
     <label for="new-email-input">Email Address</label>

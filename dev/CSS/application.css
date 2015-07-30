@@ -171,11 +171,11 @@ footer {
 .no-border-right {
   border-right: 0; }
 
-.surplus-container {
+.role-container {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
-  .surplus-container::after {
+  .role-container::after {
     clear: both;
     content: "";
     display: table; }
@@ -203,14 +203,14 @@ footer {
   .details:last-child {
     margin-right: 0; }
 
-.surplus-post {
+.postItem-column {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
   border: thin black solid;
   float: right; }
-  .surplus-post:last-child {
+  .postItem-column:last-child {
     margin-right: 0; }
 
 label {
