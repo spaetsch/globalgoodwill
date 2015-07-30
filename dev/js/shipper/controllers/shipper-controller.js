@@ -6,11 +6,9 @@ module.exports = function(app) {
   app.controller('shipper-controller', ['$scope', 'resource', function($scope, resource) {
 
     var Shipper = resource('create_shipment'); //this corresponds to URL from routes
-
     $scope.submitForm = function(shipper) {
-      console.log("shipper", shipper);
-      Shipper.submit(shipper, function(response) {
-        console.log("i'm in shipper submitForm");
+      Shipper.postItem(shipper, function(response) {
+      console.log("i'm in shipper submitForm");
       });
     };
   }])};

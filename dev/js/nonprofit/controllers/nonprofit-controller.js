@@ -9,7 +9,7 @@ module.exports = function(app) {
 
     $scope.submitForm = function(nonprofit) {
       console.log("nonprofit", nonprofit);
-      Nonprofit.submit(nonprofit, function(response) {
+      Nonprofit.postItem(nonprofit, function(response) {
         console.log("i'm in nonprofit submitForm");
       });
     };

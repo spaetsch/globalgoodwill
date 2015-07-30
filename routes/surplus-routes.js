@@ -74,7 +74,7 @@ module.exports  = function(router, passport) {
 
   //  superagent localhost:3000/api/surplus/72YiOyFuhFTvaZhcdd27Hf7naIGBDIl8qQfRwH8tBQWp/usa/shoes get
   // '{"token":"Tm+F7CjLq0ReeOpAYvd2bx20LXg97VJpSQ1WQHSe445D","location":"usa",itemName":"shoes"}'
-  router.route('/surplus/:location/:item')
+  router.route('/surplus/country/:location/item/:item')
         .get(function(req, res) {
           //req.header['token']
           console.log(req.body.token, req.params.location, req.params.item);
