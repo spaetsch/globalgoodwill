@@ -1,8 +1,8 @@
 <div data-ng-controller="user-controller" class="flex-container__login">
-  <h1 class ="login_title"> Sign In </h1>
+
   <form class="account-form" id="signup-form">
 
-    <h4>Registered Users</h4>
+    <h3 class ="login_title">Sign in</h3>
 
     <label for="login-username">User Name</label>
     <input type="text" id="login-username" name="login-username" data-ng-model="login.username"required autocomplete="off" />
@@ -12,7 +12,9 @@
 
     <button id="loginButton" data-ng-click="submitLogin(login)">Log In</button>
   </form>
-  <h4>Create an Account</h4>
+
+  <form class="account-form" id="login-form">
+    <h3 class ="login_title">Create an Account</h3>
 
     <label for="new-organization-input">Organization</label>
     <input type="text" id="organization" name="new-organization-input" data-ng-model="newUser.organization_name" required autocomplete="off" />
@@ -36,5 +38,4 @@
     <button type="submit" id="registerButton" ng-click="submitForm(newUser)">Register</button>
   </form>
 
-  <form class="account-form" id="login-form">
 </div>
