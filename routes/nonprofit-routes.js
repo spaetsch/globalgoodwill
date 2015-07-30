@@ -12,15 +12,12 @@ module.exports  = function(router, passport) {
 
          .post(function(req, res) {
             console.log(req.body);
-
-          //I AM A HACKED VERSION OF ROUTES FOR TESTING PURPOSES
-
-           // decodeToken(req.body.token, function(err, data) {
-           //   if(err)
-           //     res.status(500).json({msg: "Internal Server Error"});
+            decodeToken(req.body.token, function(err, data) {
+              if(err)
+                res.status(500).json({msg: "Internal Server Error"});
 
               var newNonprofit    = new Nonprofit();
-              newNonprofit.userId = req.body.token; //data.id;
+              newNonprofit.userId = data.id;
               newNonprofit.itemNeeded = req.body.itemNeeded;
               newNonprofit.description = req.body.description;
               newNonprofit.amountNeeded = req.body.amountNeeded;
@@ -35,7 +32,7 @@ module.exports  = function(router, passport) {
                   res.status(500).json({msg: "Internal Server Error"});
                 res.status(200).json({msg: "Success"});
               });
-            //})
+            })
          })
 
     router.route('/nonprofit/token/:token/country/:destCountry/item/:item')
