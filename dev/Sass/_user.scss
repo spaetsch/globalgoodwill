@@ -1,0 +1,16 @@
+.flex-container__login {
+
+}
+.account-form {
+  margin: 5%;
+  border-right: solid $accent-color-1 0.15em;
+  padding: 5%;
+  @include span-columns(5);
+  line-height: 1.25em;
+}
+.login_title {
+  border-bottom: solid $lightest-accent-color_1 0.24em;
+  color: $lighter-accent-color_1;
+  margin-left: 5%;
+  margin-right: 5%;
+}
