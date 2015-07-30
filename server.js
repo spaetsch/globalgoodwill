@@ -25,8 +25,12 @@ app.use('/api', apiRouter);
 // require('./routes/smp-routes')(apiRouter);
 // app.use('/', apiRouter);
 
-
-mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/ourclassapp');
+var MONGO_URI = process.env.PROD_MONGODB || 'mongodb://localhost/ourclassapp';
+mongoose.connect(MONGO_URI, function(err) {
+  if(err)
+    console.log(err);
+  console.log("Successfully connected to MongoDb")
+});
 
 //static services
 app.use(express.static(path.join(__dirname, 'build'))); //serve everything inside public directory
