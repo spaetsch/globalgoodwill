@@ -1,6 +1,7 @@
 'use strict';
 
 var Nonprofit   = require('../models/Nonprofit.js');
+var mongoose    = require('mongoose');
 var bodyParser  = require('body-parser');
 var eat         = require('eat');
 
@@ -35,17 +36,41 @@ module.exports  = function(router, passport) {
             })
          })
 
-    router.route('/nonprofit/token/:token/country/:destCountry/item/:item')
-         .get(function(req, res) {
+    router.route('/country/:destCountry/item/:itemNeeded')
+          .get(function(req, res) {
             //req.params.id
-            Nonprofit.find({}, function(err, data) {
 
-              if (err) {
-                res.status(500).json({msg: 'failed'})
-              }else{
-                //res.status(200).json(data);
-                res.status(200).json(data);
-              }
+            decodeToken(req.body.token, function(err, data) {
+              if(err)
+                res.status(500).json({msg: "Internal Server Error"});
+              var curCountry = req.params.destCountry;
+              var curItem = req.params.itemNeeded;
+              var searchShipment = require('../models/Shipment.js');
+
+              searchShipment.find({destCountry: curCountry}, {destCountry:0,
+                userId:0, __v:0})
+                .exec(function(err, data) {
+                  if(err)
+                    res.status(500).json({msg: 'failed'});
+                  console.log(data);
+                  var searchSurplus = require('../models/Surplus.js');
+                  console.log(data.originCountry);
+                  searchSurplus.find({itemName: curItem})
+                              //where('originCountry').in([data.originCountry]).
+                              .where("claimed").equals(null)
+                              .exec(function(err, finalData) {
+                                if(err)
+                                  res.status(500).json({msg: "failed"});
+                              //  for(var i = 0; i < data.length; i++) {
+                              //    if()
+                              //    for(var j = 0; j < finalData.length; j++) {
+
+                              //    }
+                              //  }
+
+                                res.status(200).json(finalData);
+                              });
+                });
             });
           })
 
