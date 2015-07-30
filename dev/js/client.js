@@ -23,9 +23,15 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
     templateUrl: './templates/userTemplate.html',
     controller: 'user-controller'
   })
+<<<<<<< HEAD
+  .when('/surplus', {
+    templateUrl: './templates/surplusTemplate.html',
+    controller: 'user-controller'
+=======
     .when('/surplus', {
     templateUrl: './templates/surplusTemplate.html',
     //controller: 'user-controller'
+>>>>>>> master
   })
   .otherwise({
     redirectTo: '/home'
