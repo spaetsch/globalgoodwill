@@ -11,12 +11,15 @@ module.exports  = function(router, passport) {
 
           .post(function(req, res) {
             console.log(req.body);
-            decodeToken(req.body.token, function(err, data) {
-              if(err)
-                res.status(500).json({msg: "Internal Server Error"});
+
+            //I AM A HACKED VERSION OF ROUTES FOR TESTING PURPOSES
+
+          //  decodeToken(req.body.token, function(err, data) {
+          //    if(err)
+          //      res.status(500).json({msg: "Internal Server Error"});
 
               var newShipment = new Shipment();
-              newShipment.userId = data.id;
+              newShipment.userId = req.body.token; //data.id;
               newShipment.originCity = req.body.originCity;
               newShipment.originState = req.body.originState;
               newShipment.originZip = req.body.originZip;
@@ -34,7 +37,7 @@ module.exports  = function(router, passport) {
                   res.status(500).json({msg: "Internal Server Error"});
                 res.status(200).json({msg: "Success"});
               });
-            });
+           // });
           })
 
           .get(function(req, res) {
