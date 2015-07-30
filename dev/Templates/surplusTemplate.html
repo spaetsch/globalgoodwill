@@ -1,18 +1,14 @@
 <!-- template page for surplus role -->
 
-<div class="surplus-container">
+<div class="role-container" data-ng-controller="surplus-controller" >
   <div class="browse-column">
-    <h2>Search Charities' wish lists</h2>
+    <h2>Search Non-profit's wish lists</h2>
     <label for="search-item" >Search wish lists:
     <input name="search-item" type="text" placeholder="Item" required></label>
 
     <label for="search-location" >Search by pickup location:
     <input name="search-location" type="text" placeholder="Country"></label>
-<!--     <select name="location">
-      <option value="None selected">Select pickup location (optional):</option>
-      <option value="mog-som">New York, USA</option>
-      <option value="Albania">Los Angeles, USA</option>
-    </select> -->
+
     <button>Search</button>
 
     <div class="display-search">
@@ -32,26 +28,26 @@
     <button>Select</button>
   </div>
 
-  <div class="surplus-post">
+  <div class="postItem-column">
     <h2>Post a Donation</h2>
     <form>
       <label for="surplus-item" >Item to donate:
-      <input name="surplus-item" type="text" placeholder="Required" required></label>
-
-      <label for="surplus-quantity" >Quantity:
-      <input name="surplus-quantity" type="number" min="1" placeholder="Required" required></label>
+      <input name="surplus-item" type="text" placeholder="Required" required data-ng-model="surplus.itemName"></label>
 
       <label for="surplus-description" >Description:
-      <input name="surplus-description" type="text" placeholder="Required" required></label>
-
-      <label for="surplus-city" >Pickup city:
-      <input name="surplus-city" type="text"></label>
+      <input name="surplus-description" type="text" placeholder="Required" data-ng-model="surplus.description"></label>
 
       <label for="surplus-country" >Pickup country:
-      <input name="surplus-country" type="text" placeholder="Required" required></label>
+      <input name="surplus-country" type="text" placeholder="Required" required data-ng-model="surplus.originCountry"></label>
 
       <label for="surplus-expire" >Expiration Date:
-      <input name="surplus-expire" type="date" placeholder="Required" required></label>
+      <input name="surplus-expire" type="date" placeholder="Required"
+      min="2015-07-31" max="2030-12-31" required data-ng-model="surplus.dateExpires"></label>
+
+      <button ng-click="submitForm(surplus)">Post</button>
+
+      <label for="surplus-token" ><h4>FOR TESTING PURPOSES ONLY</h4>user ID for token:
+      <input name="surplus-token" type="text" data-ng-model="surplus.token" value="55b916f3efc502c9b4307332" placeholder="55b916f3efc502c9b4307332"></label>
 
     </form>
   </div>

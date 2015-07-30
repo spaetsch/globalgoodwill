@@ -1,13 +1,13 @@
-<!-- template page for surplus role -->
+<!-- template page for shipper role -->
 
-<div class="role-container" data-ng-controller="surplus-controller" >
+<div class="role-container" data-ng-controller="shipper-controller" >
   <div class="browse-column">
-    <h2>Search Non-profit's wish lists</h2>
-    <label for="search-item" >Search wish lists:
-    <input name="search-item" type="text" placeholder="Item" required></label>
+    <h2>Search wish lists</h2>
+    <label for="search-origin" >Search origin location:
+    <input name="search-origin" type="text" placeholder="Country" required></label>
 
-    <label for="search-location" >Search by pickup location:
-    <input name="search-location" type="text" placeholder="Country"></label>
+    <label for="search-destination" >Search destination location:
+    <input name="search-destination" type="text" placeholder="Country"></label>
 
     <button>Search</button>
 
@@ -22,32 +22,28 @@
   </div>
 
   <div class="details">
-    <h2>Item Details</h2>
+    <h2>Details</h2>
     <p>
     Corrupted plastic rebar drugs 3D-printed into dolphin car receding smart-neural dissident. Semiotics physical free-market cyber-rebar nano-RAF dead San Francisco soul-delay corporation franchise euro-pop Shibuya. Knife Kowloon courier bomb 8-bit katana wristwatch plastic m advert tank-traps table dome semiotics free-market futurity into drone paranoid.</p>
     <button>Select</button>
   </div>
 
   <div class="postItem-column">
-    <h2>Post a Donation</h2>
+    <h2>Donating a shipping route</h2>
     <form>
-      <label for="surplus-item" >Item to donate:
-      <input name="surplus-item" type="text" placeholder="Required" required data-ng-model="surplus.itemName"></label>
+      <label for="shipper-origin" >Pickup country:
+      <input name="shipper-origin" type="text" data-ng-model="shipper.originCountry"></label>
 
-      <label for="surplus-description" >Description:
-      <input name="surplus-description" type="text" placeholder="Required" data-ng-model="surplus.description"></label>
+      <label for="shipper-destination" >Destination country:
+      <input name="shipper-destination" type="text" data-ng-model="shipper.destCountry"></label>
 
-      <label for="surplus-country" >Pickup country:
-      <input name="surplus-country" type="text" placeholder="Required" required data-ng-model="surplus.originCountry"></label>
+      <label for="shipper-date" >Date available:
+      <input name="shipper-date" type="date"  min="2015-07-31" max="2030-12-31" data-ng-model="shipper.dateAvailable"></label>
 
-      <label for="surplus-expire" >Expiration Date:
-      <input name="surplus-expire" type="date" placeholder="Required"
-      min="2015-07-31" max="2030-12-31" required data-ng-model="surplus.dateExpires"></label>
+      <button ng-click="submitForm(shipper)">Post</button>
 
-      <button ng-click="submitForm(surplus)">Post</button>
-
-      <label for="surplus-token" ><h4>FOR TESTING PURPOSES ONLY</h4>user ID for token:
-      <input name="surplus-token" type="text" data-ng-model="surplus.token" value="55b916f3efc502c9b4307332" placeholder="55b916f3efc502c9b4307332"></label>
+      <label for="nonprofit-token" ><h4>FOR TESTING PURPOSES ONLY</h4>user ID for token:
+      <input name="nonprofit-token" type="text" data-ng-model="nonprofit.token" value="55b916f3efc502c9b4307332" placeholder="55b916f3efc502c9b4307332"></label>
 
     </form>
   </div>

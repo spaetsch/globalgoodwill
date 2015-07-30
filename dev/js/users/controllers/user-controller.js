@@ -26,23 +26,24 @@ module.exports = function(app) {
         console.log('cookies' ,$cookies.get('token'));
         //var responseKey = $cookies.get('token');
         // $http.defaults.headers.common['x-access-token'] = responseKey;
-        console.log("this is your cookie please don't lose it "+ responseKey);
+        //console.log("this is your cookie please don't lose it "+ responseKey);
         $location.path('/surplus')
 
         //$location.something.path
         //   saveToken();
       });
     };
+
     $scope.submitLogin = function(login) {
       Login.submit(login, function(response) {
         $cookies.put('token', response.token)
         $cookies.put('role', response.role)
         console.log('role',$cookies.get('role'));
-        if ($cookies.get('role') === 'Surplus')
+        if ($cookies.get('role') === 'surplus')
         $location.path('/surplus')
-        if ($cookies.get('role') === 'Shipper')
+        if ($cookies.get('role') === 'shipper')
         $location.path('/shipper')
-        if ($cookies.get('role') === 'Charity')
+        if ($cookies.get('role') === 'nonprofit')
         $location.path('/nonprofit')
       });
     };

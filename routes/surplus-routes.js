@@ -13,16 +13,19 @@ module.exports  = function(router, passport) {
   router.route('/surplus')
         // '{"token": "K2Q3Oafk5oAq5M6xRCjxztO6MoxWxe0yvGEYw/S9rG16","itemName":"gotItem","description":"this is an item","originAddress":"a new address","originCity":"Acity","originState":"Astate","originZip":"Azip","originCountry":"Acountry","dateAvailable":"Adate","dateExpires":"AexpireDate"}'
         .post(function(req, res) {
-          decodeToken(req.body.token, function(err, data) {
-            console.log('data: ', data, req.body.token);
+
+          //I AM A HACKED VERSION OF ROUTES FOR TESTING PURPOSES
+
+         // decodeToken(req.body.token, function(err, data) {
+            console.log('data: ', req.body.token);
             //User.findOne(data.id, function(err, user){
 
-              if(err){
-                res.status(500).json({msg: 'server error'});
-              }else{
+              //if(err){
+              //  res.status(500).json({msg: 'server error'});
+              //}else{
 
                 var newSurplus              = new Surplus();
-                newSurplus.userId           = data.id;
+                newSurplus.userId           = req.body.token; //data.id;
                 newSurplus.itemName         = req.body.itemName;
                 newSurplus.description      = req.body.description;
                 newSurplus.originAddress    = req.body.originAddress;
@@ -41,9 +44,9 @@ module.exports  = function(router, passport) {
                     res.status(200).json({msg: 'Succeed'})
                   }
                 });
-              }
+              //}
             //});
-          });
+          //});
         })
 
         .get(function(req, res) {
