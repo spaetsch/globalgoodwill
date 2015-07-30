@@ -25,7 +25,7 @@ module.exports = function(app) {
         var responseKey = $cookies.get('token');
         // $http.defaults.headers.common['x-access-token'] = responseKey;
         console.log("this is your cookie please don't lose it "+ responseKey);
-        $location.path('/surplus/item')
+        $location.path('/surplus')
 
         //$location.something.path
         //   saveToken();

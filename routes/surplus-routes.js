@@ -7,7 +7,7 @@ var eat         = require('eat');
 module.exports  = function(router, passport) {
   router.use(bodyParser.json());
 
-  router.route('/surplus')
+  router.route('/surplus_post')
         // '{"itemName":"gotItem","description":"this is an item","originAddress":"a new address","originCity":"Acity","originState":"Astate","originZip":"Azip","originCountry":"Acountry","dateAvailable":"Adate","dateExpires":"AexpireDate"}'
         .post(function(req, res) {
           decodeToken(req.body.token, function(err, data) {
@@ -25,7 +25,7 @@ module.exports  = function(router, passport) {
                 newSurplus.originAddress    = req.body.originAddress;
                 newSurplus.originCity       = req.body.originCity;
                 newSurplus.originState      = req.body.originState;
-                newSurplus.originZip        = req.body.originZip; 
+                newSurplus.originZip        = req.body.originZip;
                 newSurplus.originCountry    = req.body.originCountry;
                 newSurplus.dateAvailable    = req.body.dateAvailable;
                 newSurplus.dateExpires      = req.body.dateExpires;
@@ -46,7 +46,7 @@ module.exports  = function(router, passport) {
           //req.params.id
           //Surplus.decodeToken(process.env.APP_SECRET, function(err, token) {
             Surplus.find({}, function(err, data) {
-              
+
               if (err) {
                 res.status(500).json({msg: 'failed'})
               }else{
@@ -68,7 +68,7 @@ module.exports  = function(router, passport) {
         });
 
   // '{"token":"Tm+F7CjLq0ReeOpAYvd2bx20LXg97VJpSQ1WQHSe445D", "itemName":"shoes"}'
-  router.route('/surplus/item')
+  router.route('/surplus')
         .post(function(req, res) {
           decodeToken(req.body.token, function(err, data) {
             if(err){
