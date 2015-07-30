@@ -13,6 +13,9 @@ header {
 .header--login {
   @include span-columns(4);
   margin-top: 1.5%;
+  font-family: $headers-font-family;
+  font-size: 16px;
+  text-transform: uppercase;
   color: $light-color;
   text-align: right;
   &:hover {
@@ -24,6 +27,8 @@ body{
   @include outer-container;
   background-color: $light-color;
   margin-top: 0;
+  font-family: $paragraph-font-family;
+  font-size: 1.25em;
 }
 main {
   @include outer-container;
@@ -34,6 +39,7 @@ footer {
   @include span-columns(12);
   background-color: $lighter-accent-color_1;
   color: $light-color;
+  font-family: $paragraph-font-family;
   text-align: center;
   font-size: 0.75em;
   margin-top: 2.5em;
