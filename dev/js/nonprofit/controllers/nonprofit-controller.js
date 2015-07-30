@@ -1,6 +1,5 @@
 'use strict';
 
-console.log("in nonprofit-controller.js");
 
 module.exports = function(app) {
   app.controller('nonprofit-controller', ['$scope', 'resource', function($scope, resource) {
