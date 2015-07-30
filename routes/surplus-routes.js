@@ -106,11 +106,13 @@ module.exports  = function(router, passport) {
                                           for(var j = 0; j < shipmentList.length; j++){ 
                                             if(nonprofitList[i].destCountry === shipmentList[j].destCountry){
                                               
-                                              containObject.nonprofitId = nonprofitList[i]._id;
-                                              containObject.shipmentId = shipmentList[j]._id;
-                                              containObject.nonprofitOrg = nonprofitList[i].orgName;
-                                              containObject.shipmentOrg = shipmentList[j].orgName;
-                                              containObject.nonprofDesc = nonprofitList[i].description;
+                                              containObject.nonprofitItem = nonprofitList[i].itemNeeded;
+                                              containObject.nonprofDesc   = nonprofitList[i].description;
+                                              containObject.nonprofitId   = nonprofitList[i]._id;
+                                              containObject.shipmentId    = shipmentList[j]._id;
+                                              containObject.nonprofitOrg  = nonprofitList[i].orgName;
+                                              containObject.shipmentOrg   = shipmentList[j].orgName;
+                                              
                                               reqArray.push(containObject);
                                             }
                                           }
