@@ -26,8 +26,12 @@ module.exports = function(app) {
         //var responseKey = $cookies.get('token');
         // $http.defaults.headers.common['x-access-token'] = responseKey;
         //console.log("this is your cookie please don't lose it "+ responseKey);
+        if ($cookies.get('role') === 'surplus')
         $location.path('/surplus')
-
+        if ($cookies.get('role') === 'shipper')
+        $location.path('/shipper')
+        if ($cookies.get('role') === 'nonprofit')
+        $location.path('/nonprofit')
         //$location.something.path
         //   saveToken();
       });

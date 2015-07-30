@@ -9,13 +9,8 @@ module.exports = function(app) {
     $scope.submitForm = function(surplus) {
       console.log("i'm in surplus submitForm");
 
-      // var responseKey = $cookies.get('token');
-      // console.log("responseKey", responseKey);
-      //   //add it to post request
-      // $http.defaults.body.token = responseKey;
-      // console.log("surplus after token", surplus);
 
-      Surplus.submit(surplus, function(response) {
+      Surplus.postItem(surplus, function(response) {
         console.log("surplus call to services");
         //getting our cookie ready to send
 

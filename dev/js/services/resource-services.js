@@ -21,6 +21,18 @@ module.exports = function(app){
         submit: function(resource, callback){
           console.log("services submit resourceName ", resourceName);
           console.log("services submit resource ", resource);
+          $http({
+            method: 'POST',
+            url: '/api/' + resourceName,  //needs /api/ to match up with server.js app.use
+            data: resource
+          })
+          .success(callback)
+          .error(errorhandler);
+          console.log("???");
+        },
+        postItem: function(resource, callback){
+          console.log("services submit resourceName ", resourceName);
+          console.log("services submit resource ", resource);
           var responseKey = $cookies.get('token');
           console.log("responseKey", responseKey);
           resource.token = responseKey;
