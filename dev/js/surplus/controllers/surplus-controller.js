@@ -6,17 +6,20 @@ module.exports = function(app) {
 
     var Surplus = resource('surplus'); //this corresponds to URL from routes
 
-    $scope.submitForm = function(surplus) {
-
-
+    $scope.postItem = function(surplus) {
       console.log("i'm in surplus submitForm");
-
-
       Surplus.postItem(surplus, function(response) {
         console.log("surplus call to services");
-        //getting our cookie ready to send
-
-
       });
     };
+
+
+    $scope.searchSurplus = function(searchReq){
+      console.log("in surplus search");
+      console.log("searchReq", searchReq);
+      Surplus.searchSurplus(searchReq, function(response){
+        console.log("surplus search to services");
+      });
+    };
+
   }])};

@@ -6,12 +6,12 @@
   <div class="browse-column">
     <h2>Search Non-profit's wish lists</h2>
     <label for="search-item" >Search wish lists:
-    <input name="search-item" type="text" placeholder="Item" required></label>
+    <input name="search-item" type="text" placeholder="Item" required data-ng-model="searchReq.item"></label>
 
     <label for="search-location" >Search by pickup location:
-    <input name="search-location" type="text" placeholder="Country"></label>
+    <input name="search-location" type="text" placeholder="Country" data-ng-model="searchReq.location"></label>
 
-    <button>Search</button>
+    <button ng-click="searchSurplus(searchReq)">Search</button>
 
     <div class="display-search">
       <h3>Search results</h3>
@@ -46,7 +46,7 @@
       <input name="surplus-expire" type="date" placeholder="Required"
       min="2015-07-31" max="2030-12-31" required data-ng-model="surplus.dateExpires"></label>
 
-      <button ng-click="submitForm(surplus)">Post</button>
+      <button ng-click="postItem(surplus)">Post</button>
 
 
 

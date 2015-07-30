@@ -43,8 +43,30 @@ module.exports = function(app){
           })
           .success(callback)
           .error(errorhandler);
-          console.log("???");
+        },
+        searchSurplus: function(resource, callback){
+          console.log("services search resource ", resource);
+          var responseKey = $cookies.get('token');
+          console.log("responseKey", responseKey);
+          resource.token = responseKey;
+          console.log("resource.item", resource.item);
+          console.log("resource.item", resource.location);
+
+          var item = resource.item;
+          var location = resource.location;
+
+          var reqUrl = '/api/' + resourceName + "/country/" + location  + '/item/' + item;
+          console.log("reqUrl", reqUrl);
+
+          $http({
+            method: 'POST',
+            url: reqUrl,  //needs /api/ to match up with server.js app.use
+            data: resource
+          })
+          .success(callback)
+          .error(errorhandler);
         }
+
       }
     }
   }]);
