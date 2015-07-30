@@ -4,9 +4,9 @@ console.log("in client.js");
 
 require('angular/angular');
 require('angular-route');
+require('angular-cookies');
 
-var goodwillApp = angular.module('goodwillApp', ['ngRoute']);
-
+var goodwillApp = angular.module('goodwillApp', ['ngRoute', 'ngCookies']);
 // services
 require('./services/resource-services')(goodwillApp);
 
@@ -24,7 +24,7 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
     controller: 'user-controller'
   })
   .otherwise({
-    redirectTo: '/'
+    redirectTo: '/home'
     });
 }]);
 

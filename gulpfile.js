@@ -46,9 +46,6 @@ gulp.task('sass', function () {
 
           ).on('error', sass.logError))
     .pipe(gulp.dest('./dev/CSS/'));
-
-
-
 });
 
 gulp.task('sass:watch', function () {
