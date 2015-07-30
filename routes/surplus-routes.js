@@ -10,13 +10,8 @@ var bodyParser  = require('body-parser');
 module.exports  = function(router, passport) {
   router.use(bodyParser.json());
 
-<<<<<<< HEAD
-  router.route('/surplus_post')
-        // '{"itemName":"gotItem","description":"this is an item","originAddress":"a new address","originCity":"Acity","originState":"Astate","originZip":"Azip","originCountry":"Acountry","dateAvailable":"Adate","dateExpires":"AexpireDate"}'
-=======
   router.route('/surplus')
         // '{"token": "K2Q3Oafk5oAq5M6xRCjxztO6MoxWxe0yvGEYw/S9rG16","itemName":"gotItem","description":"this is an item","originAddress":"a new address","originCity":"Acity","originState":"Astate","originZip":"Azip","originCountry":"Acountry","dateAvailable":"Adate","dateExpires":"AexpireDate"}'
->>>>>>> master
         .post(function(req, res) {
           decodeToken(req.body.token, function(err, data) {
             console.log('data: ', data, req.body.token);
@@ -76,18 +71,13 @@ module.exports  = function(router, passport) {
         //   });
         // });
 
-<<<<<<< HEAD
-  // '{"token":"Tm+F7CjLq0ReeOpAYvd2bx20LXg97VJpSQ1WQHSe445D", "itemName":"shoes"}'
-  router.route('/surplus')
-        .post(function(req, res) {
-=======
+
   //  superagent localhost:3000/api/surplus/72YiOyFuhFTvaZhcdd27Hf7naIGBDIl8qQfRwH8tBQWp/usa/shoes get
   // '{"token":"Tm+F7CjLq0ReeOpAYvd2bx20LXg97VJpSQ1WQHSe445D","location":"usa",itemName":"shoes"}'
   router.route('/surplus/:location/:item')
         .get(function(req, res) {
           //req.header['token']
           console.log(req.body.token, req.params.location, req.params.item);
->>>>>>> master
           decodeToken(req.body.token, function(err, data) {
             if(err){
               res.status(500).json({msg: 'failed'});
@@ -118,12 +108,12 @@ module.exports  = function(router, passport) {
                                               if(!isNonprofitUsed){
                                                 isNonprofitUsed = true;
                                                 reqNonprofitArray.push(nonprofitList[i]);
-                                              } 
+                                              }
                                               reqShipmentArray.push(shipmentList[j]);
                                             }
                                           }
                                         }
-                                        
+
                                         res.status(200).json({ship: reqShipmentArray, nonprof: reqNonprofitArray})
                                       }
 
