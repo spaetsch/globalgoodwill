@@ -23,20 +23,17 @@ header {
   }
 }
 
-body{
+.wrapper{
   @include outer-container;
-  background-color: $light-color;
-  margin-top: 0;
-  font-family: $paragraph-font-family;
-  font-size: 1.25em;
-}
-main {
-  @include outer-container;
-  background-color: $light-color;
+  min-height: 100%;
+  position: relative;
 }
 
 footer {
   @include span-columns(12);
+  position: absolute;
+  bottom: 0;
+  left: 0;
   background-color: $lighter-accent-color_1;
   color: $light-color;
   font-family: $paragraph-font-family;

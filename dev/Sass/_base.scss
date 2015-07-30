@@ -1,0 +1,27 @@
+body{
+  background-color: $light-color;
+  margin-top: 0;
+  font-family: $paragraph-font-family;
+  font-size: 1.25em;
+}
+
+button{
+  color: white;
+  background-color: $accent-color_1;
+  min-width: 10em;
+  height: 2em;
+}
+button:hover{
+  background-color: $light-color;
+
+}
+label {
+  margin-top: 2em;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+select {
+  line-height: 2em;
+}

@@ -43,6 +43,30 @@ h1, h2, h3, h4 {
 img {
   border: 0; }
 
+body {
+  background-color: #e1e0de;
+  margin-top: 0;
+  font-family: "Raleway", serif;
+  font-size: 1.25em; }
+
+button {
+  color: white;
+  background-color: #5d5853;
+  min-width: 10em;
+  height: 2em; }
+
+button:hover {
+  background-color: #e1e0de; }
+
+label {
+  margin-top: 2em; }
+
+input[type=text],
+input[type=email],
+input[type=password],
+select {
+  line-height: 2em; }
+
 header {
   max-width: 68em;
   margin-left: auto;
@@ -80,25 +104,13 @@ header {
   .header--login:hover {
     color: #cc6000; }
 
-body {
+.wrapper {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  background-color: #e1e0de;
-  margin-top: 0;
-  font-family: "Raleway", serif;
-  font-size: 1.25em; }
-  body::after {
-    clear: both;
-    content: "";
-    display: table; }
-
-main {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #e1e0de; }
-  main::after {
+  min-height: 100%;
+  position: relative; }
+  .wrapper::after {
     clear: both;
     content: "";
     display: table; }
@@ -108,6 +120,9 @@ footer {
   display: block;
   margin-right: 2.35765%;
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   background-color: #7d7770;
   color: #e1e0de;
   font-family: "Raleway", serif;
@@ -201,6 +216,9 @@ footer {
 label {
   display: block; }
 
+button {
+  height: 4em; }
+
 .account-form {
   margin: 5%;
   padding: 5%;
@@ -214,6 +232,4 @@ label {
 
 .login_title {
   border-bottom: solid #cecbc8 0.24em;
-  color: #7d7770;
-  margin-left: 5%;
-  margin-right: 5%; }
+  color: #7d7770; }
