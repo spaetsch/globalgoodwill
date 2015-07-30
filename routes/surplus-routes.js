@@ -34,12 +34,17 @@ module.exports  = function(router, passport) {
                 newSurplus.dateExpires      = req.body.dateExpires;
                 newSurplus.claimed          = req.body.claimed;
 
-                newSurplus.save(function(err, user) {
-                  if (err) {
-                    res.status(500).json({msg: 'server error'});
-                  }else{
-                    res.status(200).json({msg: 'Succeed'})
-                  }
+                User.findOne({'_id': id})
+                .exec(function(err, user){
+                  console.log("find", user.organization_name)
+                  newSurplus.orgName = user.organization_name;
+                  newSurplus.save(function(err, user) {
+                    if (err) {
+                      res.status(500).json({msg: 'server error'});
+                    }else{
+                      res.status(200).json({msg: 'Succeed'})
+                    }
+                  });
                 });
               }
             //});
@@ -74,7 +79,7 @@ module.exports  = function(router, passport) {
 
   //  superagent localhost:3000/api/surplus/72YiOyFuhFTvaZhcdd27Hf7naIGBDIl8qQfRwH8tBQWp/usa/shoes get
   // '{"token":"Tm+F7CjLq0ReeOpAYvd2bx20LXg97VJpSQ1WQHSe445D","location":"usa",itemName":"shoes"}'
-  router.route('/surplus/:location/:item')
+  router.route('/surplus/country/:location/item/:item')
         .get(function(req, res) {
           //req.header['token']
           console.log(req.body.token, req.params.location, req.params.item);
@@ -82,39 +87,36 @@ module.exports  = function(router, passport) {
             if(err){
               res.status(500).json({msg: 'failed'});
             }else{
-              //var queryItem = Surplus.find({ "itemName": req.params.item });
-              //var queryItemLoc = queryItem.originCountry;
-              //console.log("query: ", queryItem, queryItemLoc)
               Shipment.find({ "originCountry": req.params.location })
-                     .exec(function (err, shipmentList) {
+                      .where('claimed').equals(null)
+                      .exec(function (err, shipmentList) {
                        if(err){
                           res.status(500).json({msg: 'query failed'});
                         }else{
-                          //res.status(200).json(shipmentList);
                           NonProfit.find({ "itemNeeded": req.params.item })
-                                   .exec(function(err, nonprofitList){
+                                   .exec(function (err, nonprofitList){
 
                                       if(err){
                                         res.status(500).json({msg: 'query failed'});
                                       }else{
-                                        //console.log({ship: shipmentList[0].destCountry, nonprof: nonprofitList[0].destCountry});
                                         //res.status(200).json({ship: shipmentList[0].destCountry,  nonprof: nonprofitList});
-                                        var reqNonprofitArray = [];
-                                        var reqShipmentArray = [];
+                                        var reqArray = [];
                                         for(var i = 0; i < nonprofitList.length; i++){
-                                          var isNonprofitUsed = false;
-                                          for(var j = 0; j < shipmentList.length; j++){
+                                          var containObject = {};
+                                          for(var j = 0; j < shipmentList.length; j++){ 
                                             if(nonprofitList[i].destCountry === shipmentList[j].destCountry){
-                                              if(!isNonprofitUsed){
-                                                isNonprofitUsed = true;
-                                                reqNonprofitArray.push(nonprofitList[i]);
-                                              }
-                                              reqShipmentArray.push(shipmentList[j]);
+                                              
+                                              containObject.nonprofitId = nonprofitList[i]._id;
+                                              containObject.shipmentId = shipmentList[j]._id;
+                                              containObject.nonprofitOrg = nonprofitList[i].orgName;
+                                              containObject.shipmentOrg = shipmentList[j].orgName;
+                                              containObject.nonprofDesc = nonprofitList[i].description;
+                                              reqArray.push(containObject);
                                             }
                                           }
                                         }
 
-                                        res.status(200).json({ship: reqShipmentArray, nonprof: reqNonprofitArray})
+                                        res.status(200).json(reqArray)
                                       }
 
                                     });
@@ -124,7 +126,21 @@ module.exports  = function(router, passport) {
           });
         });
 
+  router.route('/surplus/claim')
+        .post(function(req, res){
+
+        });
+
   function decodeToken(token, callback) {
     eat.decode(token, process.env.APP_SECRET, callback);
   };
+
+  function findUserOrganization(id){
+    console.log(id) 
+    User.findOne({'_id': id})
+    .exec(function(err, user){
+      console.log("find", user.organization_name)
+      return user.organization_name;
+    });
+  }
 }

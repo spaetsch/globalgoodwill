@@ -13,6 +13,7 @@ var surplusSchema = mongoose.Schema({
   originCountry: String,
   dateAvailable: Date,
   dateExpires: Date,
+  orgName: String,
   claimed: Array
 });
 
