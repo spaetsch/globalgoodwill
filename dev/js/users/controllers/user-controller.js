@@ -1,6 +1,5 @@
 'use strict';
 
-console.log("in user-controller.js");
 
 module.exports = function(app) {
   app.controller('user-controller', ['$scope', 'resource', '$cookies', '$http', '$location', function($scope, resource, $cookies, $http, $location) {
