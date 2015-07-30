@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.controller('user-controller', ['$scope', 'resource', '$cookies', '$http', '$location', function($scope, resource, $cookies, $http, $location) {
 
     var User = resource('create_user'); //this corresponds to URL from routes
-    var Login= resource('sign_in')
+    var Login= resource('sign_in');
 
     $scope.getAll = function(){
       User.getAll(function(response){
@@ -16,14 +16,15 @@ module.exports = function(app) {
     };
 
     $scope.submitForm = function(user) {
-      console.log("newUser", user);
+      console.log("User", user);
       User.submit(user, function(response) {
         console.log("i'm in submitForm");
         console.log('resource token', response.token);
         $cookies.put('token', response.token);
+        $cookies.put('role', response.role);
         console.log("cookie stored")
         console.log('cookies' ,$cookies.get('token'));
-        var responseKey = $cookies.get('token');
+        //var responseKey = $cookies.get('token');
         // $http.defaults.headers.common['x-access-token'] = responseKey;
         console.log("this is your cookie please don't lose it "+ responseKey);
         $location.path('/surplus')
@@ -33,15 +34,16 @@ module.exports = function(app) {
       });
     };
     $scope.submitLogin = function(login) {
-      console.log("login", login);
       Login.submit(login, function(response) {
-        console.log("i'm in loginForm");
-        console.log('resource token', response.token)
         $cookies.put('token', response.token)
-        console.log('cookies' ,$cookies.get('token'))
-        console.log("I'm past the storage")
-        //$location.something.path
-        //   saveToken();
+        $cookies.put('role', response.role)
+        console.log('role',$cookies.get('role'));
+        if ($cookies.get('role') === 'Surplus')
+        $location.path('/surplus')
+        if ($cookies.get('role') === 'Shipper')
+        $location.path('/shipper')
+        if ($cookies.get('role') === 'Charity')
+        $location.path('/nonprofit')
       });
     };
   //       saveToken(response) {
