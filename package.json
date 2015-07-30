@@ -13,15 +13,16 @@
   },
   "dependencies": {
     "angular": "^1.4.3",
+    "angular-cookies": "^1.4.3",
     "angular-route": "^1.4.3",
     "bcrypt": "^0.8.3",
     "body-parser": "^1.13.2",
+    "eat": "0.1.1",
     "express": "^4.13.1",
     "mongoose": "^4.0.7",
     "node-sass": "^3.2.0",
     "passport": "^0.2.2",
-    "passport-http":"^0.2.2",
-    "eat":"0.1.1"
+    "passport-http": "^0.2.2"
   },
   "repository": {
     "type": "git",
