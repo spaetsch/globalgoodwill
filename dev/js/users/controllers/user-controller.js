@@ -6,6 +6,7 @@ module.exports = function(app) {
   app.controller('user-controller', ['$scope', 'resource', '$cookies', '$http', '$location', function($scope, resource, $cookies, $http, $location) {
 
     var User = resource('create_user'); //this corresponds to URL from routes
+    var Login= resource('sign_in')
 
     $scope.getAll = function(){
       User.getAll(function(response){
@@ -27,6 +28,18 @@ module.exports = function(app) {
         console.log("this is your cookie please don't lose it "+ responseKey);
         $location.path('/surplus')
 
+        //$location.something.path
+        //   saveToken();
+      });
+    };
+    $scope.submitLogin = function(login) {
+      console.log("login", login);
+      Login.submit(login, function(response) {
+        console.log("i'm in loginForm");
+        console.log('resource token', response.token)
+        $cookies.put('token', response.token)
+        console.log('cookies' ,$cookies.get('token'))
+        console.log("I'm past the storage")
         //$location.something.path
         //   saveToken();
       });
