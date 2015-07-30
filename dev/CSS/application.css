@@ -104,25 +104,11 @@ header {
   .header--login:hover {
     color: #cc6000; }
 
-.wrapper {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 100%;
-  position: relative; }
-  .wrapper::after {
-    clear: both;
-    content: "";
-    display: table; }
-
 footer {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   background-color: #7d7770;
   color: #e1e0de;
   font-family: "Raleway", serif;
