@@ -11,7 +11,8 @@ var nonprofitSchema = mongoose.Schema({
   destCity: String,
   destState: String,
   destZip: Number,
-  destCountry: String
+  destCountry: String,
+  orgName String,
 });
 
 module.exports = mongoose.model('Nonprofit', nonprofitSchema);

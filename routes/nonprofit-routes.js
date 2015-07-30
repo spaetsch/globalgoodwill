@@ -1,6 +1,10 @@
 'use strict';
 
 var Nonprofit   = require('../models/Nonprofit.js');
+var User        = require('../models/user-model.js');
+var Surplus     = require('../models/Surplus.js');
+var Shipment    = require('../models/Shipment.js');
+var mongoose    = require('mongoose');
 var bodyParser  = require('body-parser');
 var eat         = require('eat');
 
@@ -35,17 +39,50 @@ module.exports  = function(router, passport) {
             })
          })
 
-    router.route('/nonprofit/token/:token/country/:destCountry/item/:item')
-         .get(function(req, res) {
+    router.route('/nonprofit/country/:destCountry/item/:itemNeeded')
+          .get(function(req, res) {
             //req.params.id
-            Nonprofit.find({}, function(err, data) {
 
-              if (err) {
-                res.status(500).json({msg: 'failed'})
-              }else{
-                //res.status(200).json(data);
-                res.status(200).json(data);
-              }
+            decodeToken(req.body.token, function(err, data) {
+              if(err)
+                res.status(500).json({msg: "Internal Server Error"});
+              var curCountry = req.params.destCountry;
+              var curItem = req.params.itemNeeded;
+              Shipment.find({destCountry: curCountry}, {destCountry:0, __v:0})
+                .exec(function(err, shipData) {
+                  if(err)
+                    res.status(500).json({msg: 'failed'});
+                  var searchSurplus = Surplus();
+                  console.log(shipData[0].originCountry);
+                  Surplus.find({itemName: curItem})
+                              //where('originCountry').in([data.originCountry]).
+                          .where("claimed").equals(null)
+                          .exec(function(err, surplusData) {
+                            var result = [];
+                            if(err)
+                              res.status(500).json({msg: "failed"});
+                            for(var i = 0; i < shipData.length; i++) {
+                              for(var j = 0; j < surplusData.length; j++) {
+                                if(shipData[i].originCountry == surplusData[j].originCountry) {
+                                  var connect = {};
+                                  connect.surplusID = surplusData[j].userId;
+                                  connect.shipID = shipData[i].userId;
+                                  connect.originCountry = surplusData[j].originCountry;
+                                  connect.itemName = curItem;
+                                  connect.itemDesc = "red";
+                                  User.find({_id: surplusData[j].userID})
+                                      .exec(function(err, obj) {
+                                        if(err) return handle(err);
+                                        console.log(obj[0]);
+                                        connect.shipOrg = obj[0].orginization_name;
+                                      });
+                                  result.push(connect);
+                                }
+                              }
+                            }
+                            res.status(200).json(result);
+                          });
+                });
             });
           })
 
