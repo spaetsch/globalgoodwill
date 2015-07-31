@@ -12,4 +12,13 @@ module.exports = function(app) {
         console.log("i'm in nonprofit submitForm");
       });
     };
+
+
+    $scope.searchNonprofit = function(searchReq){
+      console.log("in surplus search");
+      console.log("searchReq", searchReq);
+      Nonprofit.searchNonprofit(searchReq, function(response){
+        console.log("surplus search to services");
+      });
+    };
   }])};

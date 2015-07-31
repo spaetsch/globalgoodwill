@@ -5,12 +5,12 @@
   <div class="browse-column">
     <h2>Search Available Donations</h2>
     <label for="search-item" >Search donated items:
-    <input name="search-item" type="text" placeholder="Item" required></label>
+    <input name="search-item" type="text" placeholder="Item" required data-ng-model="searchReq.itemNeeded"></label>
 
     <label for="search-location" >Search by destination location:
-    <input name="search-location" type="text" placeholder="Country"></label>
+    <input name="search-location" type="text" placeholder="Country" data-ng-model="searchReq.destCountry"></label>
 
-    <button>Search</button>
+    <button ng-click="searchNonprofit(searchReq)">Search</button>
 
     <div class="display-search">
       <h3>Search results</h3>

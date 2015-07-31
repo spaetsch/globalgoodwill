@@ -13,7 +13,6 @@ module.exports = function(app) {
       });
     };
 
-
     $scope.searchSurplus = function(searchReq){
       console.log("in surplus search");
       console.log("searchReq", searchReq);
