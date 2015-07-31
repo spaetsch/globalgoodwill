@@ -34,10 +34,10 @@ module.exports  = function(router, passport) {
                 newSurplus.dateExpires      = req.body.dateExpires;
                 newSurplus.claimed          = req.body.claimed;
 
-                User.findOne({'_id': id})
+                User.findOne({'_id': data.id})
                 .exec(function(err, user){
-                  console.log("find", user.organization_name)
                   newSurplus.orgName = user.organization_name;
+
                   newSurplus.save(function(err, user) {
                     if (err) {
                       res.status(500).json({msg: 'server error'});
@@ -45,6 +45,7 @@ module.exports  = function(router, passport) {
                       res.status(200).json({msg: 'Succeed'})
                     }
                   });
+
                 });
               }
             //});
