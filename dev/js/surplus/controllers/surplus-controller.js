@@ -18,6 +18,7 @@ module.exports = function(app) {
       console.log("searchReq", searchReq);
       Surplus.searchSurplus(searchReq, function(response){
         console.log("surplus search to services");
+        console.log("query response", response);
       });
     };
 

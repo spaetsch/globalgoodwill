@@ -87,7 +87,9 @@ module.exports = function(app){
           })
           .success(callback)
           .error(errorhandler);
-        }
+        },
+        //NEED ENDPOINT ??
+
         searchShipper: function(resource, callback){
           console.log("services search resource ", resource);
           var responseKey = $cookies.get('token');
@@ -96,7 +98,7 @@ module.exports = function(app){
           console.log("resource.item", resource.item);
           console.log("resource.item", resource.location);
 
-//NEED ROUTES ??
+        //NEED ENDPOINT ??
           var reqUrl = '/api/' + resourceName + "/country/" + destCountry  + '/item/' + itemNeeded;
           console.log("reqUrl", reqUrl);
 
