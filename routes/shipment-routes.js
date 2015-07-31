@@ -32,10 +32,12 @@ module.exports  = function(router, passport) {
               newShipment.dateShipped = req.body.dateShipped;
               newShipment.claimed = req.body.claimed;
 
-              User.findOne({'_id': data.id})
+              User.findOne({_id: data.id})
                 .exec(function(err, user){
                   newShipment.orgName = user.organization_name;
 
+                  console.log(newShipment);
+                  
                   newShipment.save(function(err) {
                     if(err)
                       res.status(500).json({msg: "Internal Server Error"});
