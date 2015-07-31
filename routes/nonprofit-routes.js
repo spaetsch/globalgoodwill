@@ -30,19 +30,21 @@ module.exports  = function(router, passport) {
               newNonprofit.destState = req.body.destState;
               newNonprofit.destZip = req.body.destZip;
               newNonprofit.destCountry = req.body.destCountry;
-
-              newNonprofit.save(function(err) {
-                if(err)
-                  res.status(500).json({msg: "Internal Server Error"});
-                res.status(200).json({msg: "Success"});
+              console.log(data.id);
+              User.find({_id: data.id})
+                  .exec(function(err, obj) {
+                    newNonprofit.orgName = obj[0].organization_name;
+                    newNonprofit.save(function(err) {
+                  if(err)
+                    res.status(500).json({msg: "Internal Server Error"});
+                  res.status(200).json({msg: "Success"});
+                });
               });
-            })
-         })
+            });
+         });
 
     router.route('/nonprofit/country/:destCountry/item/:itemNeeded')
           .get(function(req, res) {
-            //req.params.id
-
             decodeToken(req.body.token, function(err, data) {
               if(err)
                 res.status(500).json({msg: "Internal Server Error"});
@@ -55,7 +57,6 @@ module.exports  = function(router, passport) {
                   var searchSurplus = Surplus();
                   console.log(shipData[0].originCountry);
                   Surplus.find({itemName: curItem})
-                              //where('originCountry').in([data.originCountry]).
                           .where("claimed").equals(null)
                           .exec(function(err, surplusData) {
                             var result = [];
@@ -66,16 +67,12 @@ module.exports  = function(router, passport) {
                                 if(shipData[i].originCountry == surplusData[j].originCountry) {
                                   var connect = {};
                                   connect.surplusID = surplusData[j].userId;
-                                  connect.shipID = shipData[i].userId;
+                                  connect.shipmentID = shipData[i].userId;
                                   connect.originCountry = surplusData[j].originCountry;
                                   connect.itemName = curItem;
-                                  connect.itemDesc = "red";
-                                  User.find({_id: surplusData[j].userID})
-                                      .exec(function(err, obj) {
-                                        if(err) return handle(err);
-                                        console.log(obj[0]);
-                                        connect.shipOrg = obj[0].orginization_name;
-                                      });
+                                  connect.itemDesc = surplusData.description;
+                                  connect.shipmentOrg = shipData[i].orgName;
+                                  connect.surplusOrg = surplusData[j].orgName;
                                   result.push(connect);
                                 }
                               }
