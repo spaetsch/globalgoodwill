@@ -7,7 +7,7 @@
   background-image: $hero-image;
   background-size:cover;
   height: 45em;
-  width:100%;
+  max-width:100%;
   clear:both;
   border-top: solid $accent-color_1 1.25em;
   border-bottom: solid $accent-color_1 1.25em;

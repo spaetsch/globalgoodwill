@@ -150,7 +150,7 @@ footer {
   background-image: url("../images/herokids.jpg");
   background-size: cover;
   height: 45em;
-  width: 100%;
+  max-width: 100%;
   clear: both;
   border-top: solid #5d5853 1.25em;
   border-bottom: solid #5d5853 1.25em;
