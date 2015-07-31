@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = function(app) {
   app.controller('nonprofit-controller', ['$scope', 'resource', function($scope, resource) {
 
@@ -14,12 +13,14 @@ module.exports = function(app) {
       });
     };
 
-
     $scope.searchNonprofit = function(searchReq){
       console.log("in nonprofit search");
       console.log("searchReq", searchReq);
       searchNonprofit.searchNonprofit(searchReq, function(response){
         console.log("nonprofit search to services");
+        console.log("response", response);
+        $scope.current = -1;
+        $scope.results = response;
       });
     };
   }])};

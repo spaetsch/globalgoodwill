@@ -15,12 +15,8 @@ module.exports = function(app) {
 
     $scope.searchSurplus = function(searchReq){
       console.log("in surplus search");
-      console.log("searchReq", searchReq);
       Surplus.searchSurplus(searchReq, function(response){
-        console.log("surplus search to services");
         console.log("query response", response);
-        console.log("query response[0].nonprofitItem", response[0].nonprofitItem);
-
         $scope.current = -1;
         $scope.results = response;
       });

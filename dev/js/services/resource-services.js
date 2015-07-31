@@ -81,25 +81,26 @@ module.exports = function(app){
           console.log("reqUrl", reqUrl);
 
           $http({
-            method: 'GET',
+            method: 'POST',
             url: reqUrl,  //needs /api/ to match up with server.js app.use
             data: resource
           })
           .success(callback)
           .error(errorhandler);
         },
-        //NEED ENDPOINT ??
-
         searchShipper: function(resource, callback){
           console.log("services search resource ", resource);
           var responseKey = $cookies.get('token');
           console.log("responseKey", responseKey);
           resource.token = responseKey;
-          console.log("resource.item", resource.item);
-          console.log("resource.item", resource.location);
+          console.log("resource.item", resource.origin);
+          console.log("resource.item", resource.destination);
 
-        //NEED ENDPOINT ??
-          var reqUrl = '/api/' + resourceName + "/country/" + destCountry  + '/item/' + itemNeeded;
+        //NEED ENDPOINT ??'/shipment/origin/:origin/destination/:destination'
+          var origin =resource.origin;
+          var destination=resource.destination;
+
+          var reqUrl = '/api/' + resourceName + "/origin/" + origin  + '/destination/' + destination;
           console.log("reqUrl", reqUrl);
 
           $http({

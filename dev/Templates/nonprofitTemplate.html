@@ -15,17 +15,18 @@
     <div class="display-search">
       <h3>Search results</h3>
       <div class="display-searchbox">
-        Box o' search results
-        Girl refrigerator computer 8-bit military-grade geodesic tube silent voodoo god table Tokyo denim alcohol. Semiotics A.I. Shibuya sign computer neural silent-ware DIY drugs footage augmented reality meta-cardboard. Drugs uplink jeans alcohol Legba Tokyo long-chain hydrocarbons silent motion 3D-printed vehicle construct ablative sentient j-pop.
-        Paranoid into pistol shanty town stimulate hotdog gang garage boat advert render-farm knife assault dolphin tower crypto. Corporation weathered RAF-space dissident man order-flow industrial grade meta-gang drugs into garage boat math. Fetishism 8-bit drugs skyscraper towards pre-sub-orbital convenience store neural grenade long-chain hydrocarbons car neon claymore mine. Rain military-grade math-wonton soup convenience store footage cyber-katana table.
+        <ul>
+          <li data-ng-repeat="item in results"> {{ item.itemName }} <button ng-click="$parent.current=$index">More info</button></li>
+        </ul>
       </div>
     </div>
   </div>
 
   <div class="details">
     <h2>Item Details</h2>
-    <p>
-    Corrupted plastic rebar drugs 3D-printed into dolphin car receding smart-neural dissident. Semiotics physical free-market cyber-rebar nano-RAF dead San Francisco soul-delay corporation franchise euro-pop Shibuya. Knife Kowloon courier bomb 8-bit katana wristwatch plastic m advert tank-traps table dome semiotics free-market futurity into drone paranoid.</p>
+      <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
+          {{ item.itemName }} Details forthcoming!
+      </div>
     <button>Select</button>
   </div>
 
