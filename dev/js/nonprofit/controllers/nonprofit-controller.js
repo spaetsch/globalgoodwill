@@ -16,10 +16,10 @@ module.exports = function(app) {
 
 
     $scope.searchNonprofit = function(searchReq){
-      console.log("in surplus search");
+      console.log("in nonprofit search");
       console.log("searchReq", searchReq);
       searchNonprofit.searchNonprofit(searchReq, function(response){
-        console.log("surplus search to services");
+        console.log("nonprofit search to services");
       });
     };
   }])};
