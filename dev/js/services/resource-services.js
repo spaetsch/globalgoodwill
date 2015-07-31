@@ -71,8 +71,8 @@ module.exports = function(app){
           var responseKey = $cookies.get('token');
           console.log("responseKey", responseKey);
           resource.token = responseKey;
-          console.log("resource.item", resource.item);
-          console.log("resource.item", resource.location);
+          console.log("resource.itemNeeded", resource.itemNeeded);
+          console.log("resource.destCountry", resource.destCountry);
 
           var itemNeeded = resource.itemNeeded;
           var destCountry = resource.destCountry;
@@ -81,7 +81,7 @@ module.exports = function(app){
           console.log("reqUrl", reqUrl);
 
           $http({
-            method: 'POST',
+            method: 'GET',
             url: reqUrl,  //needs /api/ to match up with server.js app.use
             data: resource
           })
