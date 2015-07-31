@@ -34,10 +34,10 @@ module.exports  = function(router, passport) {
                 newSurplus.dateExpires      = req.body.dateExpires;
                 newSurplus.claimed          = req.body.claimed;
 
-                User.findOne({'_id': id})
+                User.findOne({'_id': data.id})
                 .exec(function(err, user){
-                  console.log("find", user.organization_name)
                   newSurplus.orgName = user.organization_name;
+
                   newSurplus.save(function(err, user) {
                     if (err) {
                       res.status(500).json({msg: 'server error'});
@@ -45,6 +45,7 @@ module.exports  = function(router, passport) {
                       res.status(200).json({msg: 'Succeed'})
                     }
                   });
+
                 });
               }
             //});
@@ -106,11 +107,13 @@ module.exports  = function(router, passport) {
                                           for(var j = 0; j < shipmentList.length; j++){ 
                                             if(nonprofitList[i].destCountry === shipmentList[j].destCountry){
                                               
-                                              containObject.nonprofitId = nonprofitList[i]._id;
-                                              containObject.shipmentId = shipmentList[j]._id;
-                                              containObject.nonprofitOrg = nonprofitList[i].orgName;
-                                              containObject.shipmentOrg = shipmentList[j].orgName;
-                                              containObject.nonprofDesc = nonprofitList[i].description;
+                                              containObject.nonprofitItem = nonprofitList[i].itemNeeded;
+                                              containObject.nonprofDesc   = nonprofitList[i].description;
+                                              containObject.nonprofitId   = nonprofitList[i]._id;
+                                              containObject.shipmentId    = shipmentList[j]._id;
+                                              containObject.nonprofitOrg  = nonprofitList[i].orgName;
+                                              containObject.shipmentOrg   = shipmentList[j].orgName;
+                                              
                                               reqArray.push(containObject);
                                             }
                                           }
