@@ -68,7 +68,7 @@ module.exports  = function(router, passport) {
                                   connect.shipmentID = shipData[i].userId;
                                   connect.originCountry = surplusData[j].originCountry;
                                   connect.itemName = curItem;
-                                  connect.itemDesc = surplusData.description;
+                                  connect.itemDesc = surplusData[j].description;
                                   connect.shipmentOrg = shipData[i].orgName;
                                   connect.surplusOrg = surplusData[j].orgName;
                                   result.push(connect);
