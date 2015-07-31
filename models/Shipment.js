@@ -15,7 +15,7 @@ var shipmentSchema = mongoose.Schema({
   dateAvailable: Date,
   dateShipped: Date,
   orgName: String,
-  claimed: Array,
+  claimed: Array
 });
 
 module.exports = mongoose.model('Shipment', shipmentSchema);
