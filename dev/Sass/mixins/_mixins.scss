@@ -1,0 +1,7 @@
+@mixin form_box {
+  border: 0.4em $lightest-accent-color_1 solid;
+  border-radius: 1em;
+  padding: 2.5%;
+  box-sizing:border-box;
+
+}

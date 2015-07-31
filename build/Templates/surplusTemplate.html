@@ -1,10 +1,10 @@
 <!-- template page for surplus role -->
 
 <div class="role-container" data-ng-controller="surplus-controller" >
-  <h1> Welcome Surplus! </h1>
+  <h1> Welcome Surplus Donors! </h1>
 
   <div class="browse-column">
-    <h2>Search Non-profit's wish lists</h2>
+    <h3>Non-profit's Wish Lists</h3>
     <label for="search-item" >Search wish lists:
     <input name="search-item" type="text" placeholder="Item" required></label>
 
@@ -14,36 +14,34 @@
     <button>Search</button>
 
     <div class="display-search">
-      <h3>Search results</h3>
-      <div class="display-searchbox">
-        Box o' search results
-        Girl refrigerator computer 8-bit military-grade geodesic tube silent voodoo god table Tokyo denim alcohol. Semiotics A.I. Shibuya sign computer neural silent-ware DIY drugs footage augmented reality meta-cardboard. Drugs uplink jeans alcohol Legba Tokyo long-chain hydrocarbons silent motion 3D-printed vehicle construct ablative sentient j-pop.
-        Paranoid into pistol shanty town stimulate hotdog gang garage boat advert render-farm knife assault dolphin tower crypto. Corporation weathered RAF-space dissident man order-flow industrial grade meta-gang drugs into garage boat math. Fetishism 8-bit drugs skyscraper towards pre-sub-orbital convenience store neural grenade long-chain hydrocarbons car neon claymore mine. Rain military-grade math-wonton soup convenience store footage cyber-katana table.
-      </div>
+      <h3>Search results:</h3>
+      <ul class="display-searchbox">
+        <li>Box o' search results</li>
+        <li>Girl refrigerator computer </li><li>8-bit military-grade geodesic </li><li>tube silent voodoo </li><li>god table Tokyo </li><li>denim alcohol. </li><li>Semiotics A.I. </li><li>Shibuya sign </li><li>computer neural </li><li>silent-ware </li><li>DIY drugs </li><li>footage augmented reality </li>
+      </ul>
     </div>
   </div>
 
   <div class="details">
-    <h2>Item Details</h2>
+    <h3>Item Details</h3>
     <p>
     Corrupted plastic rebar drugs 3D-printed into dolphin car receding smart-neural dissident. Semiotics physical free-market cyber-rebar nano-RAF dead San Francisco soul-delay corporation franchise euro-pop Shibuya. Knife Kowloon courier bomb 8-bit katana wristwatch plastic m advert tank-traps table dome semiotics free-market futurity into drone paranoid.</p>
     <button>Select</button>
   </div>
 
   <div class="postItem-column">
-    <h2>Post a Donation</h2>
+    <h3>Post a Donation</h3>
     <form>
       <label for="surplus-item" >Item to donate:
       <input name="surplus-item" type="text" placeholder="Required" required data-ng-model="surplus.itemName"></label>
 
-      <label for="surplus-description" >Description:
-      <input name="surplus-description" type="text" placeholder="Required" data-ng-model="surplus.description"></label>
+      <label for="surplus-description">Description:<textarea name="surplus-description" type="text" placeholder="Required" data-ng-model="surplus.description"></textarea></label>
 
       <label for="surplus-country" >Pickup country:
-      <input name="surplus-country" type="text" placeholder="Required" required data-ng-model="surplus.originCountry"></label>
+      <br><input name="surplus-country" type="text" placeholder="Required" required data-ng-model="surplus.originCountry"></label>
 
       <label for="surplus-expire" >Expiration Date:
-      <input name="surplus-expire" type="date" placeholder="Required"
+      <br><input name="surplus-expire" type="date" placeholder="Required"
       min="2015-07-31" max="2030-12-31" required data-ng-model="surplus.dateExpires"></label>
 
       <button ng-click="submitForm(surplus)">Post</button>

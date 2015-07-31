@@ -1,6 +1,12 @@
 .flex-container__login {
 
 }
+.roleSelect {
+  line-height: 2em;
+  margin-top: 10%;
+  height: 2em;
+  min-width: 15em;
+}
 .account-form {
   margin: 5%;
   //border-right: solid $accent-color-1 0.15em;
@@ -13,4 +19,25 @@
   color: $lighter-accent-color_1;
  // margin-left: 5%;
  // margin-right: 5%;
+}
+#new-email, #organization {
+  min-width: 20em;
+}
+
+// .user-image {
+//   background-image: $user-image;
+//   background-size:cover;
+//   height: 45em;
+//   width:100%;
+//   clear:both;
+
+// }
+.shoes {
+  float:left;
+  clear:both;
+  width: 100%;
+  margin-top: -100px;
+  margin-left: 7%;
+  @include span-columns(5);
+  border-radius: 1em;
 }

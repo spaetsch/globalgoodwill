@@ -4,26 +4,28 @@
 
 .browse-column{
   @include span-columns(4);
-  border: thin black solid;
+  @include form_box;
 }
 .display-searchbox{
-  height: 5em;
+  height: 17em;
   overflow: auto;
-  border: thin black solid;
+  @include form_box;
+  padding: 0px;
+}
+.display-search li {
+  text-decoration: none;
+  list-style: none;
+  padding-left:5px;
+}
+.display-search li:nth-child(even) {
+  background-color: $lightest-accent-color_1;
 }
 .details {
-  @include span-columns(3);
-  border: thin black solid;
+  @include span-columns(4);
+  @include form-box;
 }
 .postItem-column {
   @include span-columns(4);
-  border: thin black solid;
-  float: right;
+  @include form-box;
 }
 
-label {
-  display: block;
-}
-button{
-  height:4em;
-}

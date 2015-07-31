@@ -57,20 +57,35 @@ body {
 button {
   color: white;
   background-color: #5d5853;
-  min-width: 10em;
-  height: 2em; }
+  min-width: 11.8em;
+  height: 2.5em;
+  border-radius: 0.25em;
+  margin-top: 10%;
+  margin-bottom: 5%; }
 
 button:hover {
   background-color: #e1e0de; }
-
-label {
-  margin-top: 2em; }
 
 input[type=text],
 input[type=email],
 input[type=password],
 select {
-  line-height: 2em; }
+  line-height: 1.75em; }
+
+label {
+  display: block;
+  margin-top: 1.75em; }
+
+label[for="search-item"], label[for="surplus-item"] {
+  margin-top: 0em; }
+
+textarea {
+  min-height: 10em;
+  overflow: auto;
+  max-width: 30em; }
+
+ul {
+  margin: 0; }
 
 header {
   max-width: 68em;
@@ -176,21 +191,39 @@ footer {
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  border: thin black solid; }
+  border: 0.4em #cecbc8 solid;
+  border-radius: 1em;
+  padding: 2.5%;
+  box-sizing: border-box; }
   .browse-column:last-child {
     margin-right: 0; }
 
 .display-searchbox {
-  height: 5em;
+  height: 17em;
   overflow: auto;
-  border: thin black solid; }
+  border: 0.4em #cecbc8 solid;
+  border-radius: 1em;
+  padding: 2.5%;
+  box-sizing: border-box;
+  padding: 0px; }
+
+.display-search li {
+  text-decoration: none;
+  list-style: none;
+  padding-left: 5px; }
+
+.display-search li:nth-child(even) {
+  background-color: #cecbc8; }
 
 .details {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%;
-  border: thin black solid; }
+  width: 31.76157%;
+  border: 0.4em #cecbc8 solid;
+  border-radius: 1em;
+  padding: 2.5%;
+  box-sizing: border-box; }
   .details:last-child {
     margin-right: 0; }
 
@@ -199,16 +232,18 @@ footer {
   display: block;
   margin-right: 2.35765%;
   width: 31.76157%;
-  border: thin black solid;
-  float: right; }
+  border: 0.4em #cecbc8 solid;
+  border-radius: 1em;
+  padding: 2.5%;
+  box-sizing: border-box; }
   .postItem-column:last-child {
     margin-right: 0; }
 
-label {
-  display: block; }
-
-button {
-  height: 4em; }
+.roleSelect {
+  line-height: 2em;
+  margin-top: 10%;
+  height: 2em;
+  min-width: 15em; }
 
 .account-form {
   margin: 5%;
@@ -224,3 +259,20 @@ button {
 .login_title {
   border-bottom: solid #cecbc8 0.24em;
   color: #7d7770; }
+
+#new-email, #organization {
+  min-width: 20em; }
+
+.shoes {
+  float: left;
+  clear: both;
+  width: 100%;
+  margin-top: -100px;
+  margin-left: 7%;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  border-radius: 1em; }
+  .shoes:last-child {
+    margin-right: 0; }
