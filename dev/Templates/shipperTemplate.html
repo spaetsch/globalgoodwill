@@ -6,18 +6,18 @@
   <div class="browse-column">
     <h2>Search wish lists</h2>
     <label for="search-origin" >Search origin location:
-    <input name="search-origin" type="text" placeholder="Country" required></label>
+    <input name="search-origin" type="text" placeholder="Country" required data-ng-model="searchReq.origin"></label>
 
     <label for="search-destination" >Search destination location:
-    <input name="search-destination" type="text" placeholder="Country"></label>
+    <input name="search-destination" type="text" placeholder="Country" data-ng-model="searchReq.destination"></label>
 
-    <button>Search</button>
+    <button ng-click="searchShipper(searchReq)">Search</button>
 
     <div class="display-search">
       <h3>Search results</h3>
       <div class="display-searchbox">
         <ul>
-          <li data-ng-repeat="item in results"> {{ item.nonprofitItem }} <button ng-click="$parent.current=$index">More info</button></li>
+          <li data-ng-repeat="item in results"> {{ item.route }} <button ng-click="$parent.current=$index">More info</button></li>
         </ul>
       </div>
     </div>
@@ -26,7 +26,7 @@
   <div class="details">
     <h2>Details</h2>
       <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
-          {{ item.nonprofDesc }}
+          {{ item.details }} <!--placeholder-->
       </div>
     <button>Select</button>
   </div>
