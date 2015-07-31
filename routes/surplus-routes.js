@@ -34,9 +34,11 @@ module.exports  = function(router, passport) {
                 newSurplus.dateExpires      = req.body.dateExpires;
                 newSurplus.claimed          = req.body.claimed;
 
-                User.findOne({'_id': data.id})
+                User.findOne({_id: data.id})
                 .exec(function(err, user){
                   newSurplus.orgName = user.organization_name;
+
+                  console.log(newSurplus);
 
                   newSurplus.save(function(err, user) {
                     if (err) {

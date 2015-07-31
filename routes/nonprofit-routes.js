@@ -30,15 +30,17 @@ module.exports  = function(router, passport) {
               newNonprofit.destState = req.body.destState;
               newNonprofit.destZip = req.body.destZip;
               newNonprofit.destCountry = req.body.destCountry;
-              console.log(data.id);
               User.find({_id: data.id})
                   .exec(function(err, obj) {
                     newNonprofit.orgName = obj[0].organization_name;
+
+                    console.log(newNonprofit);
+                    
                     newNonprofit.save(function(err) {
-                  if(err)
-                    res.status(500).json({msg: "Internal Server Error"});
-                  res.status(200).json({msg: "Success"});
-                });
+                      if(err)
+                        res.status(500).json({msg: "Internal Server Error"});
+                      res.status(200).json({msg: "Success"});
+                    });
               });
             });
          });
