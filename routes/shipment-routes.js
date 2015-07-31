@@ -55,14 +55,14 @@ module.exports  = function(router, passport) {
               res.status(500).json({msg: 'failed'});
             }else{
               Surplus.find({ "originCountry": req.params.origin })
-                      .where('claimed').equals(null)
                       .exec(function (err, surplusList) {
+                        console.log('Surplus', surplusList)
                        if(err){
                           res.status(500).json({msg: 'query failed'});
                         }else{
-                          NonProfit.find({ "itemNeeded": req.params.destination })
+                          NonProfit.find({ "destCountry": req.params.destination })
                                    .exec(function (err, nonprofitList){
-
+                                      console.log('NonProfit', nonprofitList)
                                       if(err){
                                         res.status(500).json({msg: 'query failed'});
                                       }else{
@@ -75,7 +75,7 @@ module.exports  = function(router, passport) {
                                               
                                               containObject.nonprofitItem = nonprofitList[i].itemNeeded;
                                               containObject.nonprofDesc   = nonprofitList[i].description;
-                                              containObject.surplusDesc   = surplusList[i].description
+                                              containObject.surplusDesc   = surplusList[j].description;
                                               containObject.nonprofitId   = nonprofitList[i]._id;
                                               containObject.surplustId    = surplusList[j]._id;
                                               containObject.nonprofitOrg  = nonprofitList[i].orgName;
