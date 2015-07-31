@@ -32,7 +32,7 @@ module.exports  = function(router, passport) {
               newShipment.dateShipped = req.body.dateShipped;
               newShipment.claimed = req.body.claimed;
 
-              User.findOne({'_id' : data.id})
+              User.find({'_id' : data.id})
                 .exec(function(err, user){
                   newShipment.orgName = user[0].organization_name;
                   
