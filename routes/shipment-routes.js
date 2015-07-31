@@ -2,7 +2,10 @@
 
 var Shipment   = require('../models/Shipment.js');
 var bodyParser  = require('body-parser');
-var eat = require('eat');
+var eat         = require('eat');
+var Surplus     = require('../models/Surplus.js');
+var NonProfit   = require('../models/Nonprofit.js');
+var User        = require('../models/user-model.js');
 
 module.exports  = function(router, passport) {
   router.use(bodyParser.json());
@@ -29,23 +32,69 @@ module.exports  = function(router, passport) {
               newShipment.dateShipped = req.body.dateShipped;
               newShipment.claimed = req.body.claimed;
 
-              newShipment.save(function(err) {
-                if(err)
-                  res.status(500).json({msg: "Internal Server Error"});
-                res.status(200).json({msg: "Success"});
-              });
+              User.find({'_id' : data.id})
+                .exec(function(err, user){
+                  newShipment.orgName = user[0].organization_name;
+                  
+                  newShipment.save(function(err) {
+                    if(err)
+                      res.status(500).json({msg: "Internal Server Error"});
+                    res.status(200).json({msg: "Success"});
+                  });
+
+                });
             });
           })
 
-          .get(function(req, res) {
-            //req.params.id
-            Shipment.find({}, function(err, data) {
-              if (err)
-                res.status(500).json({msg: 'failed'})
+  router.route('/shipment/origin/:origin/destination/:destination')
+        .post(function(req, res) {
+          //req.header['token']
+          console.log(req.body.token, req.params.origin, req.params.destination);
+          decodeToken(req.body.token, function(err, data) {
+            if(err){
+              res.status(500).json({msg: 'failed'});
+            }else{
+              Surplus.find({ "originCountry": req.params.origin })
+                      .exec(function (err, surplusList) {
+                        console.log('Surplus', surplusList)
+                       if(err){
+                          res.status(500).json({msg: 'query failed'});
+                        }else{
+                          NonProfit.find({ "destCountry": req.params.destination })
+                                   .exec(function (err, nonprofitList){
+                                      console.log('NonProfit', nonprofitList)
+                                      if(err){
+                                        res.status(500).json({msg: 'query failed'});
+                                      }else{
+                                        //res.status(200).json({ship: shipmentList[0].destCountry,  nonprof: nonprofitList});
+                                        var reqArray = [];
+                                        for(var i = 0; i < nonprofitList.length; i++){
+                                          var containObject = {};
+                                          for(var j = 0; j < surplusList.length; j++){ 
+                                            if(nonprofitList[i].itemNeeded === surplusList[j].itemName){
+                                              
+                                              containObject.nonprofitItem = nonprofitList[i].itemNeeded;
+                                              containObject.nonprofDesc   = nonprofitList[i].description;
+                                              containObject.surplusDesc   = surplusList[j].description;
+                                              containObject.nonprofitId   = nonprofitList[i]._id;
+                                              containObject.surplustId    = surplusList[j]._id;
+                                              containObject.nonprofitOrg  = nonprofitList[i].orgName;
+                                              containObject.surplusOrg    = surplusList[j].orgName;
+                                              
+                                              reqArray.push(containObject);
+                                            }
+                                          }
+                                        }
 
-              res.status(200).json(data);
-            })
-          })
+                                        res.status(200).json(reqArray)
+                                      }
+
+                                    });
+                          }
+                        });
+            }
+          });
+        });
 
   function decodeToken(token, callback) {
     eat.decode(token, process.env.APP_SECRET, callback);

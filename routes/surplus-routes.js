@@ -34,10 +34,10 @@ module.exports  = function(router, passport) {
                 newSurplus.dateExpires      = req.body.dateExpires;
                 newSurplus.claimed          = req.body.claimed;
 
-                User.findOne({'_id': id})
+                User.find({'_id' : data.id})
                 .exec(function(err, user){
-                  console.log("find", user.organization_name)
-                  newSurplus.orgName = user.organization_name;
+                  newSurplus.orgName = user[0].organization_name;
+
                   newSurplus.save(function(err, user) {
                     if (err) {
                       res.status(500).json({msg: 'server error'});
@@ -45,6 +45,7 @@ module.exports  = function(router, passport) {
                       res.status(200).json({msg: 'Succeed'})
                     }
                   });
+
                 });
               }
             //});
@@ -80,7 +81,7 @@ module.exports  = function(router, passport) {
   //  superagent localhost:3000/api/surplus/72YiOyFuhFTvaZhcdd27Hf7naIGBDIl8qQfRwH8tBQWp/usa/shoes get
   // '{"token":"Tm+F7CjLq0ReeOpAYvd2bx20LXg97VJpSQ1WQHSe445D","location":"usa",itemName":"shoes"}'
   router.route('/surplus/country/:location/item/:item')
-        .get(function(req, res) {
+        .post(function(req, res) {
           //req.header['token']
           console.log(req.body.token, req.params.location, req.params.item);
           decodeToken(req.body.token, function(err, data) {

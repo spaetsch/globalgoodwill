@@ -6,26 +6,28 @@
   <div class="browse-column">
     <h3>Non-profit's Wish Lists</h3>
     <label for="search-item" >Search wish lists:
-    <input name="search-item" type="text" placeholder="Item" required></label>
+    <input name="search-item" type="text" placeholder="Item" required data-ng-model="searchReq.item"></label>
 
     <label for="search-location" >Search by pickup location:
-    <input name="search-location" type="text" placeholder="Country"></label>
+    <input name="search-location" type="text" placeholder="Country" data-ng-model="searchReq.location"></label>
 
-    <button>Search</button>
+    <button ng-click="searchSurplus(searchReq)">Search</button>
 
     <div class="display-search">
-      <h3>Search results:</h3>
-      <ul class="display-searchbox">
-        <li>Box o' search results</li>
-        <li>Girl refrigerator computer </li><li>8-bit military-grade geodesic </li><li>tube silent voodoo </li><li>god table Tokyo </li><li>denim alcohol. </li><li>Semiotics A.I. </li><li>Shibuya sign </li><li>computer neural </li><li>silent-ware </li><li>DIY drugs </li><li>footage augmented reality </li>
-      </ul>
+      <h3>Search results</h3>
+      <div class="display-searchbox">
+        <ul>
+          <li data-ng-repeat="item in results"> {{ item.nonprofitItem }} <button ng-click="$parent.current=$index">More info</button></li>
+        </ul>
+      </div>
     </div>
   </div>
 
   <div class="details">
-    <h3>Item Details</h3>
-    <p>
-    Corrupted plastic rebar drugs 3D-printed into dolphin car receding smart-neural dissident. Semiotics physical free-market cyber-rebar nano-RAF dead San Francisco soul-delay corporation franchise euro-pop Shibuya. Knife Kowloon courier bomb 8-bit katana wristwatch plastic m advert tank-traps table dome semiotics free-market futurity into drone paranoid.</p>
+    <h2>Item Details</h2>
+      <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
+          {{ item.nonprofDesc }}
+      </div>
     <button>Select</button>
   </div>
 
@@ -44,7 +46,7 @@
       <br><input name="surplus-expire" type="date" placeholder="Required"
       min="2015-07-31" max="2030-12-31" required data-ng-model="surplus.dateExpires"></label>
 
-      <button ng-click="submitForm(surplus)">Post</button>
+      <button ng-click="postItem(surplus)">Post</button>
 
 
 

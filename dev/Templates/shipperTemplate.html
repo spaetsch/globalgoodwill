@@ -6,27 +6,27 @@
   <section class="browse-column">
     <h3>Search wish lists</h3>
     <label for="search-origin" >Search origin location:
-    <input name="search-origin" type="text" placeholder="Country" required></label>
+    <input name="search-origin" type="text" placeholder="Country" required data-ng-model="searchReq.origin"></label>
 
     <label for="search-destination" >Search destination location:
-    <input name="search-destination" type="text" placeholder="Country"></label>
+    <input name="search-destination" type="text" placeholder="Country" data-ng-model="searchReq.destination"></label>
 
-    <button>Search</button>
+    <button ng-click="searchShipper(searchReq)">Search</button>
 
     <div class="display-search">
       <h3>Search results</h3>
       <ul class="display-searchbox">
-        <li>Box o' search results</li>
-        <li>Girl refrigerator </li><li>computer 8-bit military-grade </li><li>geodesic tube silent </li><li>voodoo god table </li><li>Tokyo denim alcohol. </li><li>Semiotics A.I. </li><li>Shibuya sign computer </li><li>neural silent-ware DIY drugs footage augmented reality meta-cardboard. Drugs uplink jeans alcohol Legba Tokyo long-chain hydrocarbons silent motion 3D-printed vehicle construct ablative sentient j-pop.
-        Paranoid into pistol shanty town stimulate hotdog gang garage boat advert render-farm knife assault dolphin tower crypto. Corporation weathered RAF-space dissident man order-flow industrial grade meta-gang drugs into garage boat math. Fetishism 8-bit drugs skyscraper towards pre-sub-orbital convenience store neural grenade long-chain hydrocarbons car neon claymore mine. Rain military-grade math-wonton soup convenience store footage cyber-katana table.</li>
+        <li data-ng-repeat="item in results"> {{ item.nonprofitOrg }} <button ng-click="$parent.current=$index">More info</button></li>
       </ul>
     </div>
-  </section>
 
-  <section class="details">
-    <h3>Details</h3>
-    <p>
-    Corrupted plastic rebar drugs 3D-printed into dolphin car receding smart-neural dissident. Semiotics physical free-market cyber-rebar nano-RAF dead San Francisco soul-delay corporation franchise euro-pop Shibuya. Knife Kowloon courier bomb 8-bit katana wristwatch plastic m advert tank-traps table dome semiotics free-market futurity into drone paranoid.</p>
+    </div>
+  </section>
+  <div class="details">
+    <h2>Details</h2>
+      <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
+          {{ item.nonprofitItem }}
+      </div>
     <button>Select</button>
   </section>
 
@@ -42,7 +42,14 @@
       <label for="shipper-date" >Date available:
       <input name="shipper-date" type="date"  min="2015-07-31" max="2030-12-31" data-ng-model="shipper.dateAvailable"></label>
 
+<<<<<<< HEAD
       <button ng-click="submitForm(shipper)">Post</button>
+=======
+      <button ng-click="postItem(shipper)">Post</button>
+
+
+
+>>>>>>> adf181c0c75171e0afebb3b5ddf247f02db0fb52
     </form>
   </section
 </div>
