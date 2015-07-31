@@ -32,11 +32,9 @@ module.exports  = function(router, passport) {
               newShipment.dateShipped = req.body.dateShipped;
               newShipment.claimed = req.body.claimed;
 
-              User.findOne(data.id)
+              User.findOne({'_id' : data.id})
                 .exec(function(err, user){
-                  newShipment.orgName = user.organization_name;
-
-                  console.log(user);
+                  newShipment.orgName = user[0].organization_name;
                   
                   newShipment.save(function(err) {
                     if(err)
@@ -49,7 +47,7 @@ module.exports  = function(router, passport) {
           })
 
   router.route('/surplus/origin/:origin/destination/:destination')
-        .get(function(req, res) {
+        .post(function(req, res) {
           //req.header['token']
           console.log(req.body.token, req.params.origin, req.params.destination);
           decodeToken(req.body.token, function(err, data) {
