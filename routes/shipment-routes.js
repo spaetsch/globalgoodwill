@@ -46,7 +46,7 @@ module.exports  = function(router, passport) {
             });
           })
 
-  router.route('/surplus/origin/:origin/destination/:destination')
+  router.route('/shipment/origin/:origin/destination/:destination')
         .post(function(req, res) {
           //req.header['token']
           console.log(req.body.token, req.params.origin, req.params.destination);
