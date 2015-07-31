@@ -17,7 +17,7 @@
       <h3>Search results</h3>
       <div class="display-searchbox">
         <ul>
-          <li data-ng-repeat="item in results"> {{ item.route }} <button ng-click="$parent.current=$index">More info</button></li>
+          <li data-ng-repeat="item in results"> {{ item.nonprofitOrg }} <button ng-click="$parent.current=$index">More info</button></li>
         </ul>
       </div>
     </div>
@@ -26,7 +26,7 @@
   <div class="details">
     <h2>Details</h2>
       <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
-          {{ item.details }} <!--placeholder-->
+          {{ item.nonprofitItem }}
       </div>
     <button>Select</button>
   </div>
