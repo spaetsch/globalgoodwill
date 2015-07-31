@@ -15,7 +15,6 @@ module.exports  = function(router, passport) {
    router.route('/create_nonprofit')
 
          .post(function(req, res) {
-            console.log(req.body);
             decodeToken(req.body.token, function(err, data) {
               if(err)
                 res.status(500).json({msg: "Internal Server Error"});
@@ -33,9 +32,6 @@ module.exports  = function(router, passport) {
               User.find({_id: data.id})
                   .exec(function(err, obj) {
                     newNonprofit.orgName = obj[0].organization_name;
-
-                    console.log(newNonprofit);
-                    
                     newNonprofit.save(function(err) {
                       if(err)
                         res.status(500).json({msg: "Internal Server Error"});
@@ -46,7 +42,7 @@ module.exports  = function(router, passport) {
          });
 
     router.route('/nonprofit/country/:destCountry/item/:itemNeeded')
-          .get(function(req, res) {
+          .post(function(req, res) {
             decodeToken(req.body.token, function(err, data) {
               if(err)
                 res.status(500).json({msg: "Internal Server Error"});
