@@ -1,10 +1,10 @@
 <!-- template page for shipper role -->
 
-<div class="role-container" data-ng-controller="shipper-controller" >
+<div class="role-container" data-ng-controller="shipper-controller">
   <h1> Welcome Shipper! </h1>
 
-  <div class="browse-column">
-    <h2>Search wish lists</h2>
+  <section class="browse-column">
+    <h3>Search wish lists</h3>
     <label for="search-origin" >Search origin location:
     <input name="search-origin" type="text" placeholder="Country" required data-ng-model="searchReq.origin"></label>
 
@@ -15,24 +15,23 @@
 
     <div class="display-search">
       <h3>Search results</h3>
-      <div class="display-searchbox">
-        <ul>
-          <li data-ng-repeat="item in results"> {{ item.nonprofitOrg }} <button ng-click="$parent.current=$index">More info</button></li>
-        </ul>
-      </div>
+      <ul class="display-searchbox">
+        <li data-ng-repeat="item in results"> {{ item.nonprofitOrg }} <button ng-click="$parent.current=$index">More info</button></li>
+      </ul>
     </div>
-  </div>
 
+    </div>
+  </section>
   <div class="details">
     <h2>Details</h2>
       <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
           {{ item.nonprofitItem }}
       </div>
     <button>Select</button>
-  </div>
+  </section>
 
-  <div class="postItem-column">
-    <h2>Donating a shipping route</h2>
+  <section class="postItem-column">
+    <h3>Donating a shipping route</h3>
     <form>
       <label for="shipper-origin" >Pickup country:
       <input name="shipper-origin" type="text" data-ng-model="shipper.originCountry"></label>
@@ -43,11 +42,8 @@
       <label for="shipper-date" >Date available:
       <input name="shipper-date" type="date"  min="2015-07-31" max="2030-12-31" data-ng-model="shipper.dateAvailable"></label>
 
+
       <button ng-click="postItem(shipper)">Post</button>
-
-
-
     </form>
-  </div>
-
+  </section
 </div>

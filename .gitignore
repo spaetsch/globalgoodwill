@@ -19,5 +19,4 @@ sftp-config*
 node_modules
 .sass-cache
 data
-build
 

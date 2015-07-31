@@ -9,20 +9,34 @@ body{
 button{
   color: white;
   background-color: $accent-color_1;
-  min-width: 10em;
-  height: 2em;
+  min-width: 11.8em;
+  height:2.5em;
+  border-radius: 0.25em;
+  margin-top: 10%;
+  margin-bottom: 5%;
 }
 button:hover{
   background-color: $light-color;
-
-}
-label {
-  margin-top: 2em;
 }
 
 input[type=text],
 input[type=email],
 input[type=password],
 select {
-  line-height: 2em;
+  line-height: 1.75em;
+}
+label {
+  display: block;
+  margin-top: 1.75em;
+}
+label[for="search-item"], label[for="surplus-item"] {
+  margin-top: 0em;
+}
+textarea {
+  min-height: 10em;
+  overflow:auto;
+  max-width: 30em;
+}
+ul {
+  margin: 0;
 }
