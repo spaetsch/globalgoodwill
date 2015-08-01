@@ -20,10 +20,10 @@ require('./shipper/controllers/shipper-controller')(goodwillApp);
 goodwillApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
   .when('/home', {
-    templateUrl: 'templates/homeTemplate.html',
+    templateUrl: 'Templates/homeTemplate.html',
   })
   .when('/login', {
-    templateUrl: 'templates/userTemplate.html',
+    templateUrl: './Templates/userTemplate.html',
     controller: 'user-controller'
   })
   .when('/surplus', {
