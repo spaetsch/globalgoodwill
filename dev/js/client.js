@@ -23,19 +23,19 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
     templateUrl: 'Templates/homeTemplate.html',
   })
   .when('/login', {
-    templateUrl: './Templates/userTemplate.html',
+    templateUrl: 'Templates/userTemplate.html',
     controller: 'user-controller'
   })
   .when('/surplus', {
-    templateUrl: './templates/surplusTemplate.html',
+    templateUrl: 'Templates/surplusTemplate.html',
     controller: 'surplus-controller'
   })
   .when('/nonprofit', {
-    templateUrl: './templates/nonprofitTemplate.html',
+    templateUrl: 'Templates/nonprofitTemplate.html',
     controller: 'nonprofit-controller'
   })
     .when('/shipper', {
-    templateUrl: './templates/shipperTemplate.html',
+    templateUrl: 'Templates/shipperTemplate.html',
     controller: 'shipper-controller'
   })
   .otherwise({
