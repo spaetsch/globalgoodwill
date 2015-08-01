@@ -20,22 +20,22 @@ require('./shipper/controllers/shipper-controller')(goodwillApp);
 goodwillApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
   .when('/home', {
-    templateUrl: 'Templates/homeTemplate.html',
+    templateUrl: 'templates/homeTemplate.html',
   })
   .when('/login', {
-    templateUrl: 'Templates/userTemplate.html',
+    templateUrl: 'templates/userTemplate.html',
     controller: 'user-controller'
   })
   .when('/surplus', {
-    templateUrl: 'Templates/surplusTemplate.html',
+    templateUrl: 'templates/surplusTemplate.html',
     controller: 'surplus-controller'
   })
   .when('/nonprofit', {
-    templateUrl: 'Templates/nonprofitTemplate.html',
+    templateUrl: 'templates/nonprofitTemplate.html',
     controller: 'nonprofit-controller'
   })
     .when('/shipper', {
-    templateUrl: 'Templates/shipperTemplate.html',
+    templateUrl: 'templates/shipperTemplate.html',
     controller: 'shipper-controller'
   })
   .otherwise({

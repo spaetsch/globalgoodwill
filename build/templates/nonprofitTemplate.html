@@ -1,0 +1,49 @@
+<!-- template page for nonprofit role -->
+
+<div class="role-container" data-ng-controller="nonprofit-controller" >
+  <h1> Welcome Non-profit! </h1>
+  <div class="browse-column">
+    <h2>Search Available Donations</h2>
+    <label for="search-item" >Search donated items:
+    <input name="search-item" type="text" placeholder="Item" required data-ng-model="searchReq.itemNeeded"></label>
+
+    <label for="search-location" >Search by destination location:
+    <input name="search-location" type="text" placeholder="Country" data-ng-model="searchReq.destCountry"></label>
+
+    <button ng-click="searchNonprofit(searchReq)">Search</button>
+
+    <div class="display-search">
+      <h3>Search results</h3>
+      <div class="display-searchbox">
+        <ul>
+          <li data-ng-repeat="item in results"> {{ item.itemName }} <button ng-click="$parent.current=$index">More info</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="details">
+    <h2>Item Details</h2>
+      <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
+          {{ item.itemName }} Details forthcoming!
+      </div>
+    <button>Select</button>
+  </div>
+
+  <div class="postItem-column">
+    <h2>Post a Need</h2>
+    <form>
+      <label for="nonprofit-item" >Item needed:
+      <input name="nonprofit-item" type="text" placeholder="Required" required data-ng-model="nonprofit.itemNeeded"></label>
+
+      <label for="nonprofit-description" >Description:
+      <input name="nonprofit-description" type="text" placeholder="Required" required data-ng-model="nonprofit.description"></label>
+
+      <label for="nonprofit-country" >Destination country:
+      <input name="nonprofit-country" type="text" placeholder="Required" required data-ng-model="nonprofit.destCountry"></label>
+
+      <button ng-click="postItem(nonprofit)">Post</button>
+    </form>
+  </div>
+
+</div>

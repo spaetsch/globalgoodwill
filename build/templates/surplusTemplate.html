@@ -1,0 +1,56 @@
+<!-- template page for surplus role -->
+
+<div class="role-container" data-ng-controller="surplus-controller" >
+  <h1> Welcome Surplus Donors! </h1>
+
+  <div class="browse-column">
+    <h3>Non-profit's Wish Lists</h3>
+    <label for="search-item" >Search wish lists:
+    <input name="search-item" type="text" placeholder="Item" required data-ng-model="searchReq.item"></label>
+
+    <label for="search-location" >Search by pickup location:
+    <input name="search-location" type="text" placeholder="Country" data-ng-model="searchReq.location"></label>
+
+    <button ng-click="searchSurplus(searchReq)">Search</button>
+
+    <div class="display-search">
+      <h3>Search results</h3>
+      <div class="display-searchbox">
+        <ul>
+          <li data-ng-repeat="item in results"> {{ item.nonprofitItem }} <button ng-click="$parent.current=$index">More info</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="details">
+    <h2>Item Details</h2>
+      <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
+          {{ item.nonprofDesc }}
+      </div>
+    <button>Select</button>
+  </div>
+
+  <div class="postItem-column">
+    <h3>Post a Donation</h3>
+    <form>
+      <label for="surplus-item" >Item to donate:
+      <input name="surplus-item" type="text" placeholder="Required" required data-ng-model="surplus.itemName"></label>
+
+      <label for="surplus-description">Description:<textarea name="surplus-description" type="text" placeholder="Required" data-ng-model="surplus.description"></textarea></label>
+
+      <label for="surplus-country" >Pickup country:
+      <br><input name="surplus-country" type="text" placeholder="Required" required data-ng-model="surplus.originCountry"></label>
+
+      <label for="surplus-expire" >Expiration Date:
+      <br><input name="surplus-expire" type="date" placeholder="Required"
+      min="2015-07-31" max="2030-12-31" required data-ng-model="surplus.dateExpires"></label>
+
+      <button ng-click="postItem(surplus)">Post</button>
+
+
+
+    </form>
+  </div>
+
+</div>
