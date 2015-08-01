@@ -27,7 +27,7 @@ mongoose.connect(MONGO_URI, function(err) {
 });
 
 //static services
-app.use(express.static(path.join(__dirname, 'build'))); //serve everything inside public directory
+app.use(express.static(path.join(__dirname + '/build'))); //serve everything inside public directory
 
 //listen for requests on port
 app.listen(port, function() {
