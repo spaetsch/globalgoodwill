@@ -20,11 +20,6 @@ var apiRouter = express.Router();
 });
 app.use('/api', apiRouter);
 
-
-//for testing
-// require('./routes/smp-routes')(apiRouter);
-// app.use('/', apiRouter);
-
 var MONGO_URI = process.env.PROD_MONGODB || 'mongodb://localhost/ourclassapp';
 mongoose.connect(MONGO_URI, function(err) {
   if(err)
