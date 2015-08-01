@@ -23,7 +23,7 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
     templateUrl: 'templates/homeTemplate.html',
   })
   .when('/login', {
-    templateUrl: './templates/userTemplate.html',
+    templateUrl: 'templates/userTemplate.html',
     controller: 'user-controller'
   })
   .when('/surplus', {
