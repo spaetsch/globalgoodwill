@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = function(app) {
   app.controller('surplus-controller', ['$scope', 'resource', '$cookies', '$http', function($scope, resource, $cookies, $http) {
 
@@ -20,8 +19,5 @@ module.exports = function(app) {
         $scope.current = -1;
         $scope.results = response;
       });
-
-
     };
-
   }])};

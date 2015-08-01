@@ -7,6 +7,7 @@ require('angular-route');
 require('angular-cookies');
 
 var goodwillApp = angular.module('goodwillApp', ['ngRoute', 'ngCookies']);
+
 // services
 require('./services/resource-services')(goodwillApp);
 
@@ -20,7 +21,6 @@ goodwillApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
   .when('/home', {
     templateUrl: './templates/homeTemplate.html',
-  //   controller: 'appController'
   })
   .when('/login', {
     templateUrl: './templates/userTemplate.html',

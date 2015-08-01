@@ -11,7 +11,6 @@ var path = require('path');
 
 process.env.APP_SECRET = process.env.APP_SECRET || 'changethischangethischangetis!';
 
-
 // Route setup
 app.use(passport.initialize());
 var apiRouter = express.Router();
