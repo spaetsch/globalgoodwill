@@ -18,7 +18,7 @@
   padding-left:0;
 }
 .display-search li {
-  padding-left:2em;
+  padding-left: 2em;
 }
 .display-search li:nth-child(even) {
   background-color: $lightest-accent-color_1;
@@ -31,4 +31,6 @@
   @include span-columns(4);
   @include form-box;
 }
-
+.more-btn {
+  padding: 0.25em;
+}

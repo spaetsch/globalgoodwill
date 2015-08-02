@@ -286,6 +286,9 @@ footer {
   .postItem-column:last-child {
     margin-right: 0; }
 
+.more-btn {
+  padding: 0.25em; }
+
 .roleSelect {
   line-height: 2em;
   margin-top: 10%;
