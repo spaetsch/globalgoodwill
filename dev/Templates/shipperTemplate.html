@@ -1,9 +1,12 @@
 <!-- template page for shipper role -->
 
 <div class="role-container" data-ng-controller="shipper-controller">
-  <h1> Welcome Shipper! </h1>
+  <h1> Welcome to the Shipper Portal </h1>
 
-  <section class="browse-column">
+  <p>On this page, you can search for donors and non-profits whose donations and needs have been matched, but are waiting for a shipper to pick-up and deliver the items.</p>
+  <p>You can also post any shipping routes you are willing to donate.</p>
+
+  <div class="browse-column">
     <h3>Search wish lists</h3>
     <label for="search-origin" >Search origin location:
     <input name="search-origin" type="text" placeholder="Country" required data-ng-model="searchReq.origin"></label>
@@ -16,21 +19,22 @@
     <div class="display-search">
       <h3>Search results</h3>
       <ul class="display-searchbox">
-        <li data-ng-repeat="item in results"> {{ item.nonprofitOrg }} <button ng-click="$parent.current=$index">More info</button></li>
+        <li data-ng-repeat="item in results">{{ item.surplusOrg }} to {{ item.nonprofitOrg }}<button ng-click="$parent.current=$index" class="tiny-btn">More</button></li>
       </ul>
     </div>
+  </div>
 
-    </div>
-  </section>
   <div class="details">
-    <h2>Details</h2>
+    <h3>Details</h3>
       <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
-          {{ item.nonprofitItem }}
+          <h4>Route: {{ item.surplusOrg }} ({{searchReq.origin}}) to {{ item.nonprofitOrg }} ({{searchReq.destination}})</h4>
+          <p>Item: {{ item.nonprofitItem }}<p>
+          <p>Description: {{ item.nonprofDesc }}
       </div>
     <button>Select</button>
-  </section>
+  </div>
 
-  <section class="postItem-column">
+  <div class="postItem-column">
     <h3>Donating a shipping route</h3>
     <form>
       <label for="shipper-origin" >Pickup country:
@@ -42,8 +46,7 @@
       <label for="shipper-date" >Date available:
       <input name="shipper-date" type="date"  min="2015-07-31" max="2030-12-31" data-ng-model="shipper.dateAvailable"></label>
 
-
       <button ng-click="postItem(shipper)">Post</button>
     </form>
-  </section
+  </div>
 </div>

@@ -43,6 +43,9 @@ h1, h2, h3, h4 {
 img {
   border: 0; }
 
+* {
+  box-sizing: border-box; }
+
 body {
   max-width: 68em;
   margin-left: auto;
@@ -56,38 +59,77 @@ body {
     content: "";
     display: table; }
 
-button {
-  color: white;
-  background-color: #5d5853;
-  min-width: 11.8em;
+/* Buttons */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
   height: 2.5em;
-  border-radius: 0.25em;
-  margin-top: 10%;
-  margin-bottom: 5%; }
+  padding: 0 2em;
+  color: #555;
+  text-align: center;
+  font-size: 0.75em;
+  line-height: 2.5em;
+  letter-spacing: .1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb; }
 
-button:hover {
-  background-color: #e1e0de; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0; }
 
-input[type=text],
-input[type=email],
-input[type=password],
+/* Forms */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+textarea,
 select {
-  line-height: 1.75em; }
+  height: 2.5em;
+  padding: 0 2em;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none; }
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0; }
 
 label {
   display: block;
-  margin-top: 1.75em; }
-
-label[for="search-item"], label[for="surplus-item"] {
-  margin-top: 0em; }
+  margin-top: 1.75em;
+  margin-bottom: .5rem;
+  font-weight: 600; }
 
 textarea {
   min-height: 10em;
   overflow: auto;
   max-width: 30em; }
-
-ul {
-  margin: 0; }
 
 header {
   max-width: 68em;
@@ -209,10 +251,13 @@ footer {
   box-sizing: border-box;
   padding: 0px; }
 
-.display-search li {
+.display-search ul {
   text-decoration: none;
   list-style: none;
-  padding-left: 5px; }
+  padding-left: 0; }
+
+.display-search li {
+  padding-left: 2em; }
 
 .display-search li:nth-child(even) {
   background-color: #cecbc8; }
@@ -240,6 +285,9 @@ footer {
   box-sizing: border-box; }
   .postItem-column:last-child {
     margin-right: 0; }
+
+.tiny-btn {
+  padding: 0.25em; }
 
 .roleSelect {
   line-height: 2em;
