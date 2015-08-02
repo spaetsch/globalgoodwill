@@ -1,7 +1,9 @@
 <!-- template page for surplus role -->
 
 <div class="role-container" data-ng-controller="surplus-controller" >
-  <h1> Welcome Surplus Donors! </h1>
+  <h1> Welcome to the Surplus Donors Portal </h1>
+  <p>On this page, you can search non-profits' wish lists to see what needs have been posted. You can also see whether that need has already been matched with a shipper -- they may just need you to supply the item!</p>
+  <p>You can also post items you are ready to donate and we will find a non-profit who needs it and a shipper willing to deliver it.</p>
 
   <div class="browse-column">
     <h3>Non-profit's Wish Lists</h3>
@@ -17,18 +19,20 @@
       <h3>Search results</h3>
       <div class="display-searchbox">
         <ul>
-          <li data-ng-repeat="item in results"> {{ item.nonprofitItem }} <button ng-click="$parent.current=$index">More info</button></li>
+          <li data-ng-repeat="item in results"> {{ item.nonprofitItem }} <button ng-click="$parent.current=$index">Details</button></li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="details">
-    <h2>Item Details</h2>
+    <h3>Details</h3>
       <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
-          {{ item.nonprofDesc }}
+          <h4>{{ item.nonprofitItem }} needed by {{item.nonprofitOrg}}</h4>
+          <p>Shipper: {{item.shipmentOrg}} </p>
+          <p>Description: {{ item.nonprofDesc }}</p>
       </div>
-    <button>Select</button>
+    <button>Claim</button>
   </div>
 
   <div class="postItem-column">
@@ -47,8 +51,6 @@
       min="2015-07-31" max="2030-12-31" required data-ng-model="surplus.dateExpires"></label>
 
       <button ng-click="postItem(surplus)">Post</button>
-
-
 
     </form>
   </div>
