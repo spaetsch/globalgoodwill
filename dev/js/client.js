@@ -7,6 +7,7 @@ require('angular-route');
 require('angular-cookies');
 
 var goodwillApp = angular.module('goodwillApp', ['ngRoute', 'ngCookies']);
+
 // services
 require('./services/resource-services')(goodwillApp);
 
@@ -19,23 +20,22 @@ require('./shipper/controllers/shipper-controller')(goodwillApp);
 goodwillApp.config(['$routeProvider', function($routeProvider){
   $routeProvider
   .when('/home', {
-    templateUrl: './templates/homeTemplate.html',
-  //   controller: 'appController'
+    templateUrl: 'templates/homeTemplate.html',
   })
   .when('/login', {
-    templateUrl: './templates/userTemplate.html',
+    templateUrl: 'templates/userTemplate.html',
     controller: 'user-controller'
   })
   .when('/surplus', {
-    templateUrl: './templates/surplusTemplate.html',
+    templateUrl: 'templates/surplusTemplate.html',
     controller: 'surplus-controller'
   })
   .when('/nonprofit', {
-    templateUrl: './templates/nonprofitTemplate.html',
+    templateUrl: 'templates/nonprofitTemplate.html',
     controller: 'nonprofit-controller'
   })
     .when('/shipper', {
-    templateUrl: './templates/shipperTemplate.html',
+    templateUrl: 'templates/shipperTemplate.html',
     controller: 'shipper-controller'
   })
   .otherwise({

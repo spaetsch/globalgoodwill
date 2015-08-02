@@ -8,8 +8,6 @@ module.exports = function(app){
   app.factory('resource', ['$http', '$cookies', function($http, $cookies){
     return function(resourceName){
       return {
-        //object that contains functions
-        //define based on our controller
         getAll: function(callback){
           $http({
             method: 'GET',
@@ -96,10 +94,8 @@ module.exports = function(app){
           console.log("resource.item", resource.origin);
           console.log("resource.item", resource.destination);
 
-        //NEED ENDPOINT ??'/shipment/origin/:origin/destination/:destination'
           var origin =resource.origin;
           var destination=resource.destination;
-
           var reqUrl = '/api/' + resourceName + "/origin/" + origin  + '/destination/' + destination;
           console.log("reqUrl", reqUrl);
 

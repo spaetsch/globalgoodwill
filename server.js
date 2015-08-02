@@ -11,7 +11,6 @@ var path = require('path');
 
 process.env.APP_SECRET = process.env.APP_SECRET || 'changethischangethischangetis!';
 
-
 // Route setup
 app.use(passport.initialize());
 var apiRouter = express.Router();
@@ -19,11 +18,6 @@ var apiRouter = express.Router();
     require('./routes/' + route + '-routes')(apiRouter, passport)
 });
 app.use('/api', apiRouter);
-
-
-//for testing
-// require('./routes/smp-routes')(apiRouter);
-// app.use('/', apiRouter);
 
 var MONGO_URI = process.env.PROD_MONGODB || 'mongodb://localhost/ourclassapp';
 mongoose.connect(MONGO_URI, function(err) {
@@ -34,6 +28,9 @@ mongoose.connect(MONGO_URI, function(err) {
 
 //static services
 app.use(express.static(path.join(__dirname, 'build'))); //serve everything inside public directory
+//app.use('/templates', express.static(__dirname + 'build/templates'));
+
+
 
 //listen for requests on port
 app.listen(port, function() {
