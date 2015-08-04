@@ -1,4 +1,5 @@
 var User        = require('../models/user-model.js');
+var bcrypt      = require('bcrypt');
 var bodyParser  = require('body-parser');
 var eat         = require('eat');
 
@@ -67,11 +68,23 @@ module.exports  = function(router, passport) {
         .post(/*passport.authenticate('basic', {session: false}),*/ function(req, res) {
           User.findOne({ "basic.username": req.body.username })
               .exec(function(err, user){
-                generateToken(user._id, function(err, token) {
-                  res.status(200).json({token: token, role: user.role});
-                });
+                if(user.checkPassword(req.body.password, user.basic.password_hash)){
+                  generateToken(user._id, function(err, token) {
+                    if(err){
+                      res.status(404).json({msg: 'wrong password'});
+                    }else{
+                      res.status(200).json({token: token, role: user.role});
+                    }
+                  });
+                }else{
+                  res.status(404).json({msg: 'wrong password'});
+                }
               });
-        });
+            });
+
+  function checkPassword(password, hash) {
+    return bcrypt.compareSync(password, hash);
+  };
 
   function generateToken(id, callback) {
     eat.encode({id: id}, process.env.APP_SECRET, callback);
