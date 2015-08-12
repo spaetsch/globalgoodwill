@@ -1,9 +1,11 @@
 <!-- template page for nonprofit role -->
 
 <div class="role-container" data-ng-controller="nonprofit-controller" >
-  <h1> Welcome Non-profit! </h1>
+  <h1> Welcome to the Non-profit Portal </h1>
+  <p>On this page, you can search surplus donors' available donations. You can also see whether that donation has already been matched with a shipper -- you may just need claim the item!</p>
+  <p>You can also post your current needs and we will try to find a surplus donor to supply it and a shipper willing to deliver it.</p>
   <div class="browse-column">
-    <h2>Search Available Donations</h2>
+    <h3>Search Available Donations</h3>
     <label for="search-item" >Search donated items:
     <input name="search-item" type="text" placeholder="Item" required data-ng-model="searchReq.itemNeeded"></label>
 
@@ -16,22 +18,24 @@
       <h3>Search results</h3>
       <div class="display-searchbox">
         <ul>
-          <li data-ng-repeat="item in results"> {{ item.itemName }} <button ng-click="$parent.current=$index">More info</button></li>
+          <li data-ng-repeat="item in results"> {{ item.itemName }} <button ng-click="$parent.current=$index" class="tiny-btn">Info</button></li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="details">
-    <h2>Item Details</h2>
+    <h3>Item Details</h3>
       <div data-ng-repeat="item in results" ng-if="$index==$parent.current">
-          {{ item.itemName }} Details forthcoming!
+          <h4>{{ item.itemName}} donated by {{item.surplusOrg}}</h4>
+          <p>Shipper: {{item.shipmentOrg}} </p>
+          <p>Description: {{ item.itemDesc }}</p>
       </div>
-    <button>Select</button>
+    <button>Claim</button>
   </div>
 
   <div class="postItem-column">
-    <h2>Post a Need</h2>
+    <h3>Post a Need</h3>
     <form>
       <label for="nonprofit-item" >Item needed:
       <input name="nonprofit-item" type="text" placeholder="Required" required data-ng-model="nonprofit.itemNeeded"></label>
